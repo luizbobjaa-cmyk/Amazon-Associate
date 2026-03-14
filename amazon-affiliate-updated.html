@@ -1,0 +1,1842 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Amazon.com. Spend less. Smile more.</title>
+<meta name="description" content="Free delivery on millions of items with Prime. Low prices across earth's biggest selection of books, music, DVDs, electronics, computers, software, apparel & accessories, shoes, jewelry, tools & hardware, housewares, furniture, sporting goods, beauty & personal care, broadband & dsl, gourmet food & just about anything else.">
+<link rel="icon" href="https://www.amazon.com/favicon.ico">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════ AMAZON EXACT RESET ═══════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:14px}
+body{font-family:'Noto Sans','Amazon Ember','Helvetica Neue',Arial,sans-serif;font-size:.875rem;color:#0F1111;background:#EAEDED;min-height:100vh;line-height:19px}
+a{text-decoration:none;color:#0F1111}
+img{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none;background:none}
+input,select{font-family:inherit}
+ul{list-style:none}
+
+/* ═══ AMAZON NAV TOP ═══ */
+#navbar{background:#131921;display:flex;align-items:stretch;min-height:60px;padding:0 10px;gap:0}
+.nav-section{display:flex;align-items:center;padding:10px 7px;border:2px solid transparent;border-radius:2px;cursor:pointer;white-space:nowrap;flex-shrink:0}
+.nav-section:hover{border-color:#fff}
+
+/* Logo */
+.nav-logo{padding:0 9px 0 4px}
+.nav-logo-svg{width:90px;height:35px}
+
+/* Deliver */
+.nav-deliver{flex-direction:column;justify-content:flex-end;padding-bottom:7px}
+.nav-deliver .top-line{font-size:11px;color:#CCC;line-height:15px}
+.nav-deliver .bot-line{font-size:13px;font-weight:700;color:#fff;line-height:17px;display:flex;align-items:center;gap:2px}
+
+/* Search bar */
+.nav-search{flex:1;display:flex;height:40px;align-items:stretch;min-width:0;margin:0 8px}
+.search-cat-btn{background:#F3F3F3;border:none;border-radius:4px 0 0 4px;padding:0 4px 0 8px;font-size:12px;color:#555;border-right:1px solid #CDCDCD;cursor:pointer;display:flex;align-items:center;gap:3px;white-space:nowrap;flex-shrink:0}
+.search-cat-btn select{background:none;border:none;font-size:12px;color:#555;cursor:pointer;outline:none;padding-right:4px;-webkit-appearance:none;appearance:none}
+.search-cat-btn::after{content:"▾";font-size:9px;color:#555;pointer-events:none;margin-left:2px}
+.search-input{flex:1;border:none;outline:none;font-size:16px;padding:0 10px;color:#0F1111;min-width:0}
+.search-btn{background:#FF9900;border:none;border-radius:0 4px 4px 0;width:46px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background .1s}
+.search-btn:hover{background:#F0901A}
+.search-btn svg{fill:#131921;width:20px;height:20px}
+
+/* Sign in */
+.nav-account{flex-direction:column;justify-content:flex-end;padding-bottom:7px}
+.nav-account .top{font-size:11px;color:#CCC;line-height:15px}
+.nav-account .bot{font-size:13px;font-weight:700;color:#fff;line-height:17px;display:flex;align-items:center;gap:2px}
+
+/* Returns */
+.nav-returns{flex-direction:column;justify-content:flex-end;padding-bottom:7px}
+.nav-returns .top{font-size:11px;color:#CCC;line-height:15px}
+.nav-returns .bot{font-size:13px;font-weight:700;color:#fff;line-height:17px}
+
+/* Cart */
+.nav-cart{position:relative;flex-direction:row;align-items:flex-end;padding:0 9px 5px;gap:3px}
+.nav-cart .cart-icon{position:relative;width:38px;height:38px}
+.nav-cart .cart-icon svg{position:absolute;bottom:0;left:0;width:38px;height:38px}
+.nav-cart .cart-count{position:absolute;top:4px;left:14px;background:#FF9900;color:#131921;font-size:14px;font-weight:700;min-width:18px;height:19px;border-radius:50%;display:flex;align-items:center;justify-content:center;line-height:1;padding:0 3px}
+.nav-cart .cart-text{font-size:14px;font-weight:700;color:#fff;line-height:1;padding-bottom:2px;flex-shrink:0}
+
+/* ═══ SUBNAV ═══ */
+#subnav{background:#232F3E;display:flex;align-items:center;padding:0 10px;height:38px;gap:0;overflow-x:auto;scrollbar-width:none}
+#subnav::-webkit-scrollbar{display:none}
+.snav-item{color:#fff;font-size:13px;padding:6px 9px;border:1px solid transparent;border-radius:2px;cursor:pointer;white-space:nowrap;flex-shrink:0;line-height:19px}
+.snav-item:hover{border-color:#fff}
+.snav-item.bold{font-weight:700}
+.snav-prime{color:#00D4FF;font-weight:700}
+
+/* ═══ ALERT BAR ═══ */
+.alert-bar{background:#232F3E;border-top:1px solid #3a4553;padding:8px 16px;text-align:center;font-size:13px;color:#fff;display:flex;align-items:center;justify-content:center;gap:12px}
+.alert-bar a{color:#08A6E4;text-decoration:underline;cursor:pointer}
+
+/* ═══ HERO CAROUSEL ═══ */
+#hero{position:relative;overflow:hidden;background:#fff;max-height:350px}
+.hero-track{display:flex;transition:transform .55s cubic-bezier(.4,0,.2,1)}
+.hero-slide{min-width:100%;height:310px;overflow:hidden;position:relative;display:flex;align-items:center}
+.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.slide1-bg{background:linear-gradient(100deg,#0a1628 0%,#1e3a5c 55%,#082030 100%)}
+.slide2-bg{background:linear-gradient(100deg,#1a0828 0%,#3d1a5c 55%,#120830 100%)}
+.slide3-bg{background:linear-gradient(100deg,#1a2800 0%,#2a5c10 55%,#103020 100%)}
+.slide4-bg{background:linear-gradient(100deg,#281200 0%,#5c2800 55%,#3a1800 100%)}
+.hero-content{position:relative;z-index:2;padding:40px 60px;max-width:52%}
+.hero-eyebrow{background:#FF9900;color:#000;font-size:11px;font-weight:800;padding:3px 10px;border-radius:2px;display:inline-block;margin-bottom:14px;text-transform:uppercase;letter-spacing:.8px}
+.hero-title{font-size:33px;font-weight:800;color:#fff;line-height:1.2;margin-bottom:12px}
+.hero-sub{font-size:14px;color:rgba(255,255,255,.78);margin-bottom:22px;line-height:1.6}
+.hero-cta{display:inline-block;background:#FF9900;color:#000;font-size:14px;font-weight:700;padding:11px 26px;border-radius:3px;border:none;cursor:pointer;transition:background .1s;line-height:20px}
+.hero-cta:hover{background:#E8900A}
+.hero-decor{position:absolute;right:80px;top:50%;transform:translateY(-50%);font-size:100px;opacity:.18;pointer-events:none;z-index:1}
+.hero-arr{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.12);color:#fff;border:none;width:40px;height:60px;font-size:26px;z-index:10;transition:background .15s;display:flex;align-items:center;justify-content:center;cursor:pointer;backdrop-filter:blur(4px)}
+.hero-arr:hover{background:rgba(255,255,255,.25)}
+.hero-arr.left{left:0}.hero-arr.right{right:0}
+.hero-dots{position:absolute;bottom:10px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:10}
+.hero-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.35);border:none;cursor:pointer;transition:background .2s}
+.hero-dot.active{background:#fff}
+
+/* ═══ MAIN GRID LAYOUT ═══ */
+#main{max-width:1500px;margin:0 auto;padding:12px 14px}
+
+/* ═══ 4-COLUMN CARD GRID ═══ */
+.card-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:12px}
+@media(max-width:1100px){.card-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:580px){.card-grid{grid-template-columns:1fr}}
+
+.card-box{background:#fff;padding:18px;border-radius:8px}
+.card-ttl{font-size:20px;font-weight:700;color:#0F1111;margin-bottom:14px;line-height:1.3}
+.card-sub{font-size:13px;color:#565959;margin-bottom:12px}
+.card-4grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+.card-item{cursor:pointer}
+.card-item-img{aspect-ratio:1;background:#F0F2F2;border-radius:4px;overflow:hidden;position:relative}
+.card-item-img img{width:100%;height:100%;object-fit:contain;transition:transform .2s}
+.card-item:hover .card-item-img img{transform:scale(1.06)}
+.card-item:hover .card-item-lbl{color:#C7511F}
+.card-item-lbl{font-size:12px;margin-top:5px;font-weight:500;color:#0F1111;line-height:1.4}
+.card-see-more{color:#007185;font-size:14px;cursor:pointer;display:inline-block;margin-top:8px}
+.card-see-more:hover{color:#C7511F;text-decoration:underline}
+
+/* Sign-in card */
+.signin-card{background:#fff;padding:18px;border-radius:8px;display:flex;flex-direction:column;gap:10px}
+.signin-btn{background:#FFD814;border:1px solid #FCD200;border-radius:8px;padding:9px 20px;font-size:14px;font-weight:700;cursor:pointer;transition:background .1s;text-align:center;display:block;width:100%}
+.signin-btn:hover{background:#F0C000}
+.new-cust{font-size:13px;text-align:center;color:#0F1111}
+.new-cust a{color:#007185;cursor:pointer}
+.new-cust a:hover{text-decoration:underline;color:#C7511F}
+
+/* ═══ SECTION ═══ */
+.section{background:#fff;padding:18px;border-radius:8px;margin-bottom:12px}
+.sec-head{display:flex;align-items:baseline;justify-content:space-between;margin-bottom:16px}
+.sec-title{font-size:21px;font-weight:700;color:#0F1111}
+.sec-see-all{color:#007185;font-size:13px;cursor:pointer}
+.sec-see-all:hover{color:#C7511F;text-decoration:underline}
+
+/* Countdown */
+.deals-head{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:16px}
+.countdown{display:flex;align-items:center;gap:5px;font-size:13px;color:#565959}
+.ctime{background:#0F1111;color:#fff;font-size:14px;font-weight:700;padding:3px 7px;border-radius:3px;font-variant-numeric:tabular-nums;min-width:27px;text-align:center;line-height:1.5}
+
+/* ═══ PRODUCT GRID ═══ */
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:0}
+
+/* ═══ PRODUCT CARD — EXACT AMAZON STYLE ═══ */
+.pcard{padding:12px;border-radius:4px;cursor:pointer;transition:all .15s;position:relative;border:1px solid transparent}
+.pcard:hover{box-shadow:0 2px 10px rgba(0,0,0,.14);border-color:#DDD;z-index:2}
+
+.pcard-img-wrap{background:#fff;border-radius:4px;aspect-ratio:1;overflow:hidden;margin-bottom:10px;display:flex;align-items:center;justify-content:center;position:relative;max-height:230px}
+.pcard-img-wrap img{width:100%;height:100%;object-fit:contain;mix-blend-mode:multiply;transition:transform .25s}
+.pcard:hover .pcard-img-wrap img{transform:scale(1.04)}
+
+.pcard-badge-wrap{position:absolute;top:6px;left:6px;z-index:1;display:flex;flex-direction:column;gap:3px}
+.badge{font-size:11px;font-weight:700;padding:2px 6px;border-radius:2px;line-height:1.4}
+.badge-sale{background:#CC0C39;color:#fff}
+.badge-prime-exc{background:#00A8E0;color:#fff}
+.badge-new{background:#067D62;color:#fff}
+.badge-bestseller{background:#FF9900;color:#000}
+.badge-sponsored{background:transparent;color:#565959;font-size:11px;font-weight:400;padding:0;border:none}
+
+.pcard-title{font-size:14px;line-height:20px;color:#0F1111;margin-bottom:2px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;height:40px}
+.pcard:hover .pcard-title{color:#C7511F}
+.pcard-brand{font-size:12px;color:#565959;margin-bottom:4px;display:block}
+
+/* Exact Amazon stars */
+.amz-stars{display:inline-flex;align-items:center;gap:4px;margin-bottom:2px}
+.star-bar{position:relative;display:inline-block;width:72px;height:14px}
+.star-bg{position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 14'%3E%3Ctext y='13' font-size='14' fill='%23ddd'%3E★★★★★%3C/text%3E%3C/svg%3E");background-size:contain;background-repeat:no-repeat}
+.star-fill{position:absolute;top:0;left:0;height:100%;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 72 14'%3E%3Ctext y='13' font-size='14' fill='%23FF9900'%3E★★★★★%3C/text%3E%3C/svg%3E");background-size:72px 14px;background-repeat:no-repeat;overflow:hidden}
+.amz-stars .rv-count{font-size:12px;color:#007185;line-height:1}
+.amz-stars .rv-count:hover{color:#C7511F;text-decoration:underline}
+
+/* Amazon price display */
+.price-section{margin:3px 0 6px}
+.price-whole{font-size:21px;line-height:1.2;color:#0F1111}
+.price-frac{font-size:13px;vertical-align:super;font-weight:700;color:#0F1111}
+.price-symbol{font-size:13px;vertical-align:super;color:#0F1111}
+.list-price-row{font-size:12px;color:#565959;margin-bottom:1px}
+.list-price-row span{text-decoration:line-through}
+.price-savings{color:#CC0C39;font-size:13px;font-weight:600}
+.coupon-badge{background:#CC0C39;color:#fff;font-size:11px;font-weight:700;padding:2px 6px;border-radius:2px;display:inline-block;margin:3px 0}
+
+/* Prime delivery line */
+.prime-row{display:flex;align-items:center;gap:5px;margin:4px 0 8px}
+.prime-logo{background:#00A8E0;color:#fff;font-size:9px;font-weight:800;padding:1px 5px;border-radius:2px;letter-spacing:.5px;line-height:1.4}
+.prime-delivery{color:#007185;font-size:12px}
+.prime-delivery strong{font-weight:700}
+.regular-delivery{color:#0F1111;font-size:12px;margin:3px 0 8px}
+
+/* Add to cart on card */
+.card-atc{display:block;width:100%;background:#FFD814;border:1px solid #FCD200;border-radius:20px;padding:6px 10px;font-size:13px;color:#0F1111;text-align:center;transition:all .1s;margin-top:6px}
+.card-atc:hover{background:#F0C000;border-color:#C7A100}
+.card-view-btn{display:block;width:100%;background:#fff;border:1px solid #BBB;border-radius:20px;padding:5px 10px;font-size:12px;color:#0F1111;text-align:center;transition:all .1s;margin-top:4px}
+.card-view-btn:hover{background:#F0F2F2}
+
+/* ═══ DEPARTMENT CATEGORY GRID ═══ */
+.dept-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:8px}
+.dept-card{background:#fff;border-radius:8px;padding:14px 10px;text-align:center;cursor:pointer;transition:transform .15s,box-shadow .15s;border:1px solid transparent}
+.dept-card:hover{transform:translateY(-2px);box-shadow:0 4px 14px rgba(0,0,0,.12);border-color:#FFD814}
+.dept-icon{font-size:38px;margin-bottom:7px;display:block;line-height:1}
+.dept-name{font-size:12px;font-weight:700;color:#0F1111}
+
+/* ═══ SPONSORED ROW ═══ */
+.sponsored-label{font-size:11px;color:#565959;margin-bottom:8px}
+
+/* ═══ SEARCH RESULTS PAGE ═══ */
+#search-page{display:none}
+.search-page-inner{display:flex;gap:14px;max-width:1500px;margin:0 auto;padding:12px 14px}
+
+/* LEFT FILTERS */
+.filters-col{width:240px;flex-shrink:0}
+.filter-header{font-size:18px;font-weight:700;margin-bottom:12px;color:#0F1111}
+.filter-section{padding:12px 0;border-bottom:1px solid #DDD}
+.filter-section:last-child{border-bottom:none}
+.filter-section-title{font-size:14px;font-weight:700;color:#0F1111;margin-bottom:8px}
+.filter-option{display:flex;align-items:center;gap:8px;padding:3px 0;cursor:pointer;font-size:13px;color:#0F1111}
+.filter-option:hover{color:#C7511F}
+.filter-option input[type=checkbox]{width:13px;height:13px;cursor:pointer;accent-color:#FF9900}
+.filter-stars{display:flex;align-items:center;gap:4px;cursor:pointer;padding:3px 0}
+.filter-stars:hover .fstar-lbl{color:#C7511F;text-decoration:underline}
+.fstar-lbl{font-size:13px;color:#007185}
+.prime-filter{display:flex;align-items:center;gap:6px;cursor:pointer;padding:3px 0;font-size:13px}
+
+/* RESULTS COL */
+.results-col{flex:1;min-width:0}
+.results-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;flex-wrap:wrap;gap:8px}
+.results-count{font-size:18px;color:#0F1111}
+.results-count span{font-weight:700;color:#CC0C39}
+.sort-group{display:flex;align-items:center;gap:8px}
+.sort-label{font-size:13px;color:#0F1111}
+.sort-select{border:1px solid #888;border-radius:4px;padding:5px 10px;font-size:13px;cursor:pointer;background:#fff}
+
+/* Search result cards — Amazon list/grid hybrid */
+.sr-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0}
+
+/* ═══ PRODUCT DETAIL PAGE ═══ */
+#product-page{display:none}
+.pd-inner{max-width:1500px;margin:0 auto;padding:10px 14px}
+.pd-breadcrumb{font-size:12px;color:#0F1111;margin-bottom:10px;display:flex;align-items:center;gap:5px;flex-wrap:wrap}
+.pd-breadcrumb a{color:#007185;cursor:pointer}
+.pd-breadcrumb a:hover{color:#C7511F;text-decoration:underline}
+.pd-breadcrumb span{color:#565959}
+
+.pd-main-layout{display:grid;grid-template-columns:50px 1fr 1fr 305px;gap:14px;background:#fff;padding:16px;border-radius:8px;margin-bottom:12px}
+@media(max-width:1000px){.pd-main-layout{grid-template-columns:50px 1fr 1fr}}
+@media(max-width:700px){.pd-main-layout{grid-template-columns:1fr}}
+
+/* Thumbnail column */
+.pd-thumbs-col{display:flex;flex-direction:column;gap:6px;align-items:center}
+.pd-thumb{width:46px;height:46px;border:1px solid #DDD;border-radius:2px;overflow:hidden;cursor:pointer;display:flex;align-items:center;justify-content:center;background:#fff;flex-shrink:0}
+.pd-thumb.active{border:2px solid #E47911;border-radius:3px}
+.pd-thumb:hover{border-color:#E47911}
+.pd-thumb img{width:100%;height:100%;object-fit:contain}
+
+/* Main image */
+.pd-main-img-col{}
+.pd-main-img-box{position:relative;background:#fff;display:flex;align-items:center;justify-content:center;cursor:zoom-in;max-height:490px;overflow:hidden;border-radius:2px}
+.pd-main-img-box img{width:100%;max-height:490px;object-fit:contain;transition:transform .3s}
+.pd-main-img-box:hover img{transform:scale(1.1)}
+.pd-more-thumbs{display:flex;gap:5px;flex-wrap:wrap;margin-top:8px;justify-content:center}
+.pd-sm-thumb{width:44px;height:44px;border:1px solid #DDD;border-radius:2px;overflow:hidden;cursor:pointer;background:#fff;display:flex;align-items:center;justify-content:center}
+.pd-sm-thumb.active{border:2px solid #E47911}
+.pd-sm-thumb img{width:100%;height:100%;object-fit:contain}
+
+/* Product info column */
+.pd-info{padding:0 8px}
+.pd-brand-link{font-size:14px;color:#007185;cursor:pointer;display:inline-block;margin-bottom:4px}
+.pd-brand-link:hover{color:#C7511F;text-decoration:underline}
+.pd-title-main{font-size:22px;font-weight:400;line-height:1.35;color:#0F1111;margin-bottom:6px}
+.pd-stars-row{display:flex;align-items:center;gap:8px;margin-bottom:6px;flex-wrap:wrap}
+.pd-stars-big .star-fill{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 17'%3E%3Ctext y='15' font-size='17' fill='%23FF9900'%3E★★★★★%3C/text%3E%3C/svg%3E");background-size:90px 17px;background-repeat:no-repeat}
+.pd-stars-big .star-bg{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 90 17'%3E%3Ctext y='15' font-size='17' fill='%23ddd'%3E★★★★★%3C/text%3E%3C/svg%3E");background-size:contain}
+.pd-stars-big .star-bar{width:90px;height:17px}
+.pd-rating-num{font-size:14px;color:#007185;cursor:pointer}
+.pd-rating-num:hover{text-decoration:underline;color:#C7511F}
+.pd-rv-count{font-size:14px;color:#007185;cursor:pointer;border-left:1px solid #DDD;padding-left:8px}
+.pd-rv-count:hover{text-decoration:underline;color:#C7511F}
+.pd-answered{font-size:14px;color:#007185;cursor:pointer;border-left:1px solid #DDD;padding-left:8px}
+.pd-answered:hover{text-decoration:underline;color:#C7511F}
+.pd-divider{border:none;border-bottom:1px solid #DDD;margin:10px 0}
+
+.pd-price-section{margin-bottom:10px}
+.pd-price-label{font-size:12px;color:#565959;margin-bottom:2px}
+.pd-price-main{display:flex;align-items:flex-start;gap:0;margin-bottom:3px}
+.pd-price-symbol{font-size:21px;color:#0F1111;line-height:1.4;padding-top:2px}
+.pd-price-integer{font-size:36px;font-weight:400;color:#0F1111;line-height:1}
+.pd-price-decimal{display:flex;flex-direction:column;padding-top:4px}
+.pd-price-frac{font-size:15px;font-weight:700;color:#0F1111;line-height:1.2}
+.pd-price-per{font-size:11px;color:#565959;line-height:1.2}
+.pd-list-row{font-size:13px;color:#565959;margin-bottom:2px}
+.pd-list-row span{text-decoration:line-through}
+.pd-save-row{font-size:13px;color:#CC0C39;font-weight:600}
+.pd-coupon-row{display:flex;align-items:center;gap:8px;margin:6px 0;font-size:13px;color:#0F1111;background:#F3F3F3;padding:6px 10px;border-radius:4px}
+.pd-coupon-check{width:16px;height:16px;accent-color:#067D62}
+.pd-coupon-lbl{font-size:13px;color:#0F1111}
+.pd-coupon-save{color:#067D62;font-weight:700}
+
+.pd-prime-section{display:flex;align-items:center;gap:8px;font-size:14px;color:#0F1111;margin:8px 0}
+.pd-prime-logo-big{background:#00A8E0;color:#fff;font-size:11px;font-weight:800;padding:2px 7px;border-radius:2px;letter-spacing:.5px}
+.pd-prime-free{font-weight:700;color:#007185}
+.pd-prime-date{color:#0F1111}
+.pd-prime-join{color:#007185;cursor:pointer}
+.pd-prime-join:hover{text-decoration:underline}
+
+.pd-about-box{margin-top:10px}
+.pd-about-title{font-size:17px;font-weight:700;margin-bottom:8px;color:#0F1111}
+.pd-bullets{list-style:none;padding:0}
+.pd-bullets li{font-size:14px;color:#0F1111;padding:4px 0 4px 16px;position:relative;line-height:1.55;border-bottom:1px solid #F9F9F9}
+.pd-bullets li:last-child{border:none}
+.pd-bullets li::before{content:"●";position:absolute;left:0;color:#0F1111;font-size:7px;top:9px}
+
+/* Buy box */
+.pd-buy-box{border:1px solid #DDD;border-radius:8px;padding:16px;height:fit-content}
+.pd-buy-price{font-size:28px;font-weight:400;color:#0F1111;margin-bottom:4px}
+.pd-buy-price .sym{font-size:18px;vertical-align:super;font-size:14px;font-weight:700}
+.pd-buy-prime{display:flex;align-items:center;gap:6px;font-size:13px;margin-bottom:8px}
+.pd-buy-prime .prime-logo2{background:#00A8E0;color:#fff;font-size:9px;font-weight:800;padding:1px 5px;border-radius:2px;letter-spacing:.5px}
+.pd-in-stock{color:#067D62;font-size:14px;font-weight:700;margin-bottom:10px}
+.pd-ships-from{font-size:13px;margin:4px 0;color:#0F1111}
+.pd-ships-from span{color:#007185;cursor:pointer}
+.pd-sold-by{font-size:13px;margin:4px 0 10px;color:#0F1111}
+.pd-sold-by span{color:#007185;cursor:pointer}
+.qty-row{display:flex;align-items:center;gap:8px;margin-bottom:12px;font-size:14px}
+.qty-row select{border:1px solid #888;border-radius:4px;padding:5px 10px;font-size:14px;cursor:pointer;background:linear-gradient(to bottom,#f7f7f7,#e9e9e9);width:80px}
+.pd-add-cart-btn{width:100%;background:#FFD814;border:1px solid #FCD200;border-radius:30px;padding:9px 10px;font-size:15px;font-weight:400;color:#0F1111;cursor:pointer;margin-bottom:8px;transition:background .1s;line-height:20px}
+.pd-add-cart-btn:hover{background:#F0C000;border-color:#B8A100}
+.pd-buy-now-btn{width:100%;background:#FF9900;border:1px solid #E47911;border-radius:30px;padding:9px 10px;font-size:15px;font-weight:400;color:#0F1111;cursor:pointer;margin-bottom:10px;transition:background .1s;display:block;text-align:center;text-decoration:none;line-height:20px}
+.pd-buy-now-btn:hover{background:#E8900A}
+.pd-buy-secure{display:flex;align-items:center;justify-content:center;gap:5px;font-size:12px;color:#0F1111;margin-bottom:12px}
+.pd-divider2{border:none;border-top:1px solid #DDD;margin:10px 0}
+.pd-ship-detail{font-size:13px;color:#0F1111;margin:3px 0;line-height:1.5}
+.pd-ship-detail b{color:#007185}
+.pd-other-sellers{font-size:13px;color:#007185;cursor:pointer;margin-top:6px;display:block}
+.pd-other-sellers:hover{text-decoration:underline}
+
+/* Specs table */
+.specs-section{background:#fff;padding:18px;border-radius:8px;margin-bottom:12px}
+.specs-title{font-size:21px;font-weight:700;margin-bottom:14px;color:#0F1111}
+.specs-table{width:100%;border-collapse:collapse}
+.specs-table tr:nth-child(odd){background:#F0F2F2}
+.specs-table td{padding:8px 12px;font-size:14px;color:#0F1111}
+.specs-table td:first-child{font-weight:700;width:35%;color:#0F1111}
+
+/* Reviews */
+.reviews-section{background:#fff;padding:18px;border-radius:8px;margin-bottom:12px}
+.rv-title{font-size:21px;font-weight:700;margin-bottom:14px;color:#0F1111}
+.rv-overview{display:flex;gap:24px;margin-bottom:18px;flex-wrap:wrap}
+.rv-big-number{text-align:center}
+.rv-big-score{font-size:52px;font-weight:400;color:#0F1111;line-height:1}
+.rv-big-stars{margin:4px 0}
+.rv-big-label{font-size:12px;color:#0F1111}
+.rv-bars{flex:1;min-width:200px;max-width:280px}
+.rv-bar-row{display:flex;align-items:center;gap:6px;margin-bottom:4px;cursor:pointer}
+.rv-bar-row:hover .rv-bar-label{text-decoration:underline;color:#C7511F}
+.rv-bar-label{font-size:12px;color:#007185;white-space:nowrap;min-width:40px}
+.rv-bar-track{flex:1;height:9px;background:#DDD;border-radius:2px;overflow:hidden}
+.rv-bar-fill{height:100%;background:#FF9900;border-radius:2px}
+.rv-bar-pct{font-size:12px;color:#565959;min-width:28px;text-align:right}
+
+.rv-list{display:flex;flex-direction:column;gap:16px}
+.rv-item{border-bottom:1px solid #DDD;padding-bottom:16px}
+.rv-item:last-child{border-bottom:none}
+.rv-reviewer{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.rv-avatar{width:36px;height:36px;border-radius:50%;background:#DDD;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:700;color:#565959;flex-shrink:0}
+.rv-name{font-size:14px;font-weight:700;color:#0F1111;cursor:pointer}
+.rv-name:hover{color:#007185}
+.rv-stars-title{display:flex;align-items:center;gap:8px;margin-bottom:4px;flex-wrap:wrap}
+.rv-verified{font-size:12px;color:#C7511F;margin-bottom:3px}
+.rv-date{font-size:12px;color:#565959;margin-bottom:6px}
+.rv-body{font-size:14px;color:#0F1111;line-height:1.55}
+.rv-helpful{font-size:12px;color:#0F1111;margin-top:8px}
+.rv-helpful-btn{background:#fff;border:1px solid #BBB;border-radius:4px;padding:4px 10px;font-size:12px;cursor:pointer;margin-left:6px}
+.rv-helpful-btn:hover{background:#F0F2F2;border-color:#888}
+
+/* ═══ CART DRAWER ═══ */
+#cart-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:2000;display:none}
+#cart-overlay.open{display:block}
+#cart-drawer{position:fixed;top:0;right:0;width:400px;max-width:96vw;height:100%;background:#fff;z-index:2001;display:flex;flex-direction:column;transform:translateX(100%);transition:transform .3s ease;box-shadow:-3px 0 16px rgba(0,0,0,.18)}
+#cart-drawer.open{transform:translateX(0)}
+.cart-drawer-head{background:#131921;padding:14px 16px;display:flex;align-items:center;justify-content:space-between}
+.cart-drawer-title{font-size:17px;font-weight:700;color:#fff}
+.cart-drawer-x{color:#fff;font-size:20px;cursor:pointer;padding:4px 8px;border:1px solid transparent;border-radius:2px}
+.cart-drawer-x:hover{border-color:#fff}
+.cart-drawer-body{flex:1;overflow-y:auto;padding:14px}
+.cart-empty-state{text-align:center;padding:40px 16px;color:#565959}
+.cart-empty-icon{font-size:56px;margin-bottom:12px;display:block}
+.citem{display:flex;gap:10px;padding:10px 0;border-bottom:1px solid #EEE}
+.citem-img{width:70px;height:70px;background:#F0F2F2;border-radius:4px;overflow:hidden;flex-shrink:0;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.citem-img img{width:100%;height:100%;object-fit:contain}
+.citem-info{flex:1;min-width:0}
+.citem-title{font-size:13px;color:#0F1111;margin-bottom:3px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;cursor:pointer;line-height:1.4}
+.citem-title:hover{color:#C7511F}
+.citem-price{font-size:16px;font-weight:700;color:#0F1111;margin-bottom:5px}
+.citem-controls{display:flex;align-items:center;gap:5px}
+.cqty-btn{width:22px;height:22px;border:1px solid #888;border-radius:2px;background:#F0F2F2;font-size:14px;display:flex;align-items:center;justify-content:center;cursor:pointer;line-height:1}
+.cqty-btn:hover{background:#DDD}
+.cqty-num{font-size:14px;min-width:20px;text-align:center;font-weight:700}
+.cdel-btn{font-size:12px;color:#007185;cursor:pointer;margin-left:4px;background:none;border:none;padding:0}
+.cdel-btn:hover{text-decoration:underline;color:#C7511F}
+.cart-drawer-foot{padding:14px;border-top:1px solid #DDD;background:#fff}
+.cart-subtotal{font-size:15px;font-weight:700;margin-bottom:10px;display:flex;justify-content:space-between}
+.cart-subtotal .amt{font-size:18px;font-weight:700;color:#0F1111}
+.cart-proceed-btn{width:100%;background:#FFD814;border:1px solid #FCD200;border-radius:20px;padding:10px;font-size:15px;font-weight:700;cursor:pointer;transition:background .1s;margin-bottom:6px;line-height:20px}
+.cart-proceed-btn:hover{background:#F0C000}
+.cart-amz-link{display:block;width:100%;background:#FF9900;border:1px solid #E47911;border-radius:20px;padding:9px;font-size:14px;font-weight:700;color:#000;text-align:center;cursor:pointer;text-decoration:none;transition:background .1s}
+.cart-amz-link:hover{background:#E8900A}
+.cart-note{font-size:11px;color:#565959;text-align:center;margin-top:8px;line-height:1.5}
+
+/* ═══ TOAST ═══ */
+#toast{position:fixed;bottom:24px;right:24px;background:#131921;color:#fff;padding:12px 18px;border-radius:4px;font-size:13px;z-index:4000;display:none;max-width:300px;box-shadow:0 4px 16px rgba(0,0,0,.22);line-height:1.5}
+#toast.show{display:block;animation:toastIn .22s ease}
+@keyframes toastIn{from{transform:translateY(10px);opacity:0}to{transform:translateY(0);opacity:1}}
+
+/* ═══ FOOTER ═══ */
+.ft-back-top{background:#37475A;text-align:center;padding:14px;color:#fff;font-size:13px;cursor:pointer;transition:background .1s}
+.ft-back-top:hover{background:#485769}
+.ft-main{background:#232F3E;padding:28px 0 16px;display:grid;grid-template-columns:repeat(4,1fr);max-width:100%;overflow:hidden}
+@media(max-width:760px){.ft-main{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.ft-main{grid-template-columns:1fr}}
+.ft-col{padding:0 24px}
+.ft-col-title{color:#fff;font-size:14px;font-weight:700;margin-bottom:10px;line-height:1}
+.ft-link{display:block;color:#DDD;font-size:13px;margin-bottom:8px;cursor:pointer;line-height:1.4}
+.ft-link:hover{text-decoration:underline;color:#fff}
+.ft-bottom{background:#131921;padding:14px 0;text-align:center}
+.ft-logo-row{display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.ft-logo-text{font-size:22px;font-weight:900;color:#FF9900;cursor:pointer;letter-spacing:-0.5px}
+.ft-logo-text span{color:#fff}
+.ft-links-row{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 0;margin-bottom:10px}
+.ft-links-row a{color:#DDD;font-size:12px;padding:0 12px;border-right:1px solid #444;cursor:pointer;line-height:1.5}
+.ft-links-row a:last-child{border-right:none}
+.ft-links-row a:hover{text-decoration:underline}
+.ft-copy{color:#777;font-size:11px;line-height:1.7}
+
+/* Disclosure */
+.disc-bar{background:#FFF8E1;border-bottom:1px solid #FFE082;padding:5px 14px;font-size:12px;color:#795548;text-align:center}
+.disc-bar a{color:#5D4037;text-decoration:underline}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:6px;height:6px}
+::-webkit-scrollbar-track{background:#F0F2F2}
+::-webkit-scrollbar-thumb{background:#B7B9BB;border-radius:3px}
+
+/* Responsive */
+@media(max-width:700px){
+  .nav-deliver,.nav-returns,.nav-account{display:none}
+  .hero-content{padding:22px 28px;max-width:82%}
+  .hero-title{font-size:22px}
+  .hero-decor{display:none}
+  .pd-main-layout{grid-template-columns:1fr}
+  .pd-thumbs-col{flex-direction:row;flex-wrap:wrap;justify-content:center}
+  .filters-col{display:none}
+  .search-page-inner{padding:8px}
+}
+</style>
+</head>
+<body>
+
+<!-- DISCLOSURE -->
+<div class="disc-bar">⚠️ <strong>Affiliate Disclosure:</strong> As an Amazon Associate we earn from qualifying purchases. <a href="#disclosure">Learn more</a></div>
+
+<!-- CART OVERLAY & DRAWER -->
+<div id="cart-overlay" onclick="closeCart()"></div>
+<div id="cart-drawer">
+  <div class="cart-drawer-head">
+    <span class="cart-drawer-title">Shopping Cart</span>
+    <span class="cart-drawer-x" onclick="closeCart()">✕</span>
+  </div>
+  <div class="cart-drawer-body" id="cartBody">
+    <div class="cart-empty-state" id="cartEmpty">
+      <span class="cart-empty-icon">🛒</span>
+      <div style="font-size:18px;font-weight:700;margin-bottom:8px;color:#0F1111">Your Amazon Cart is empty</div>
+      <div style="font-size:14px">Your Shopping Cart lives here. When you add products click here.</div>
+    </div>
+  </div>
+  <div class="cart-drawer-foot" id="cartFoot" style="display:none">
+    <div class="cart-subtotal">
+      <span>Subtotal (<span id="cartItemCount">0</span> items):</span>
+      <span class="amt">$<span id="cartTotalAmt">0.00</span></span>
+    </div>
+    <button class="cart-proceed-btn" onclick="proceedCheckout()">Proceed to checkout</button>
+    <a href="#" id="cartAmazonLink" class="cart-amz-link" target="_blank" rel="noopener sponsored">Complete on Amazon →</a>
+    <div class="cart-note">You'll be redirected to Amazon.com to complete your purchase securely.</div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div id="toast"></div>
+
+<!-- ═══════ NAVBAR ═══════ -->
+<header id="navbar">
+  <!-- Logo -->
+  <div class="nav-section nav-logo" onclick="goHome()" title="Amazon Home">
+    <svg class="nav-logo-svg" viewBox="0 0 120 38" xmlns="http://www.w3.org/2000/svg">
+      <text x="2" y="28" font-family="Arial Black,sans-serif" font-weight="900" font-size="26" fill="#FF9900">amazon</text>
+      <path d="M8 32 Q35 42 70 36" stroke="#FF9900" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <polygon points="68,33 73,36 68,39" fill="#FF9900"/>
+      <text x="74" y="32" font-family="Arial,sans-serif" font-size="10" fill="#FF9900">.com</text>
+    </svg>
+  </div>
+
+  <!-- Deliver to -->
+  <div class="nav-section nav-deliver">
+    <div class="top-line">
+      <svg style="display:inline;vertical-align:middle" width="12" height="14" viewBox="0 0 24 24" fill="none"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="#CCC"/></svg>
+      Deliver to
+    </div>
+    <div class="bot-line">New York 10001</div>
+  </div>
+
+  <!-- Search -->
+  <div class="nav-search">
+    <div class="search-cat-btn">
+      <select id="searchCat" aria-label="Search category">
+        <option value="All">All</option>
+        <option value="Arts & Crafts">Arts &amp; Crafts</option>
+        <option value="Automotive">Automotive</option>
+        <option value="Baby">Baby</option>
+        <option value="Beauty">Beauty &amp; Personal Care</option>
+        <option value="Books">Books</option>
+        <option value="Boys' Fashion">Boys' Fashion</option>
+        <option value="Clothing">Clothing, Shoes &amp; Jewelry</option>
+        <option value="Computers">Computers</option>
+        <option value="Deals">Deals &amp; Promotions</option>
+        <option value="Digital Music">Digital Music</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Girls' Fashion">Girls' Fashion</option>
+        <option value="Grocery">Grocery &amp; Gourmet Food</option>
+        <option value="Handmade">Handmade Products</option>
+        <option value="Health">Health &amp; Household</option>
+        <option value="Home">Home &amp; Kitchen</option>
+        <option value="Industrial">Industrial &amp; Scientific</option>
+        <option value="Luggage">Luggage</option>
+        <option value="Movies">Movies &amp; TV</option>
+        <option value="Music">Music, CDs &amp; Vinyl</option>
+        <option value="Pet Supplies">Pet Supplies</option>
+        <option value="Sports">Sports &amp; Outdoors</option>
+        <option value="Tools">Tools &amp; Home Improvement</option>
+        <option value="Toys">Toys &amp; Games</option>
+        <option value="Video Games">Video Games</option>
+      </select>
+    </div>
+    <input class="search-input" id="searchInput" type="text" placeholder="Search Amazon" aria-label="Search Amazon" onkeypress="if(event.key==='Enter')doSearch()">
+    <button class="search-btn" onclick="doSearch()" aria-label="Go">
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M21.71 20.29L18 16.61A9 9 0 1 0 16.61 18l3.68 3.68a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.39zM11 18a7 7 0 1 1 7-7 7 7 0 0 1-7 7z"/></svg>
+    </button>
+  </div>
+
+  <!-- Account -->
+  <div class="nav-section nav-account" onclick="showToast('Sign in with your Amazon account at amazon.com')">
+    <div class="top">Hello, sign in</div>
+    <div class="bot">Account &amp; Lists <svg style="display:inline;vertical-align:middle" width="10" height="6" viewBox="0 0 10 6"><path d="M0 0l5 6 5-6z" fill="#fff"/></svg></div>
+  </div>
+
+  <!-- Returns -->
+  <div class="nav-section nav-returns" onclick="showToast('Manage orders at amazon.com/orders')">
+    <div class="top">Returns</div>
+    <div class="bot">&amp; Orders</div>
+  </div>
+
+  <!-- Cart -->
+  <div class="nav-section nav-cart" onclick="openCart()">
+    <div class="cart-icon">
+      <svg viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 5h2.5l.8 3" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+        <path d="M8.3 8l2.8 11h15.4l3-10H8.3" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        <circle cx="14" cy="25" r="2" fill="#fff"/>
+        <circle cx="24" cy="25" r="2" fill="#fff"/>
+      </svg>
+      <span class="cart-count" id="cartBadge">0</span>
+    </div>
+    <span class="cart-text">Cart</span>
+  </div>
+</header>
+
+<!-- SUBNAV -->
+<nav id="subnav">
+  <div class="snav-item bold" onclick="showAllMenu()">
+    <svg style="display:inline;vertical-align:middle;margin-right:4px" width="16" height="12" viewBox="0 0 16 12" fill="#fff"><rect width="16" height="2"/><rect y="5" width="16" height="2"/><rect y="10" width="16" height="2"/></svg>
+    All
+  </div>
+  <div class="snav-item" onclick="doSearchCat('Electronics')">Today's Deals</div>
+  <div class="snav-item" onclick="showToast('Customer Service: Visit amazon.com/help')">Customer Service</div>
+  <div class="snav-item" onclick="showToast('Amazon Registry at amazon.com/registry')">Registry</div>
+  <div class="snav-item" onclick="showToast('Gift Cards at amazon.com/gift-cards')">Gift Cards</div>
+  <div class="snav-item" onclick="showToast('Sell on Amazon at amazon.com/sell')">Sell</div>
+  <div class="snav-item snav-prime" onclick="doSearchCat('Prime')">⚡ Prime</div>
+  <div class="snav-item" onclick="doSearchCat('New Releases')">New Releases</div>
+  <div class="snav-item" onclick="doSearchCat('Best Sellers')">Best Sellers</div>
+  <div class="snav-item" onclick="doSearchCat('Kindle')">Kindle Books</div>
+  <div class="snav-item" onclick="doSearchCat('Electronics')">Electronics</div>
+  <div class="snav-item" onclick="doSearchCat('Books')">Books</div>
+  <div class="snav-item" onclick="doSearchCat('Food & Grocery')">Food & Grocery</div>
+  <div class="snav-item" onclick="doSearchCat('Toys')">Toys & Games</div>
+  <div class="snav-item" onclick="doSearchCat('Home')">Home</div>
+  <div class="snav-item" onclick="doSearchCat('Sports')">Sports & Outdoors</div>
+  <div class="snav-item" onclick="doSearchCat('Fashion')">Fashion</div>
+  <div class="snav-item" onclick="doSearchCat('Health')">Health & Beauty</div>
+  <div class="snav-item" onclick="doSearchCat('Automotive')">Automotive</div>
+</nav>
+
+<!-- HOME PAGE -->
+<div id="home-page">
+  <!-- HERO -->
+  <div id="hero">
+    <div class="hero-track" id="heroTrack">
+      <div class="hero-slide"><div class="hero-bg slide1-bg"></div><div class="hero-content"><div class="hero-eyebrow">🔥 Deal of the Day</div><h1 class="hero-title">Electronics<br>Up to 50% Off</h1><p class="hero-sub">AirPods, MacBooks, 4K TVs,<br>smart speakers & more.</p><button class="hero-cta" onclick="doSearchCat('Electronics')">Shop Electronics</button></div><div class="hero-decor">💻</div></div>
+      <div class="hero-slide"><div class="hero-bg slide2-bg"></div><div class="hero-content"><div class="hero-eyebrow">⚡ Prime Exclusive</div><h1 class="hero-title">Prime Members<br>Save More</h1><p class="hero-sub">Free 2-day delivery on millions<br>of items. Join Prime today.</p><button class="hero-cta" onclick="doSearchCat('Prime')">Try Prime Free</button></div><div class="hero-decor">📦</div></div>
+      <div class="hero-slide"><div class="hero-bg slide3-bg"></div><div class="hero-content"><div class="hero-eyebrow">🌿 Fresh Picks</div><h1 class="hero-title">Home & Kitchen<br>Best Sellers</h1><p class="hero-sub">Instant Pot, Dyson, Ninja,<br>KitchenAid & more.</p><button class="hero-cta" onclick="doSearchCat('Home & Kitchen')">Shop Home</button></div><div class="hero-decor">🏡</div></div>
+      <div class="hero-slide"><div class="hero-bg slide4-bg"></div><div class="hero-content"><div class="hero-eyebrow">📚 Bestsellers</div><h1 class="hero-title">Books & Kindle<br>From $0.99</h1><p class="hero-sub">Millions of titles, new releases<br>every day. Free with Prime.</p><button class="hero-cta" onclick="doSearchCat('Books')">Shop Books</button></div><div class="hero-decor">📚</div></div>
+    </div>
+    <button class="hero-arr left" onclick="heroMove(-1)">&#10094;</button>
+    <button class="hero-arr right" onclick="heroMove(1)">&#10095;</button>
+    <div class="hero-dots" id="heroDots">
+      <button class="hero-dot active" onclick="heroGo(0)"></button>
+      <button class="hero-dot" onclick="heroGo(1)"></button>
+      <button class="hero-dot" onclick="heroGo(2)"></button>
+      <button class="hero-dot" onclick="heroGo(3)"></button>
+    </div>
+  </div>
+
+  <div id="main">
+    <!-- 4-COL CARD GRID -->
+    <div class="card-grid">
+      <!-- Electronics card -->
+      <div class="card-box">
+        <div class="card-ttl">Top picks in Electronics</div>
+        <div class="card-4grid" id="homeElecGrid"></div>
+        <a class="card-see-more" onclick="doSearchCat('Electronics')">See all deals</a>
+      </div>
+      <!-- Fashion card -->
+      <div class="card-box">
+        <div class="card-ttl">Refresh your wardrobe</div>
+        <div class="card-4grid" id="homeFashionGrid"></div>
+        <a class="card-see-more" onclick="doSearchCat('Clothing')">Shop fashion</a>
+      </div>
+      <!-- Deals card -->
+      <div class="card-box">
+        <div class="card-ttl">Today's Big Deals</div>
+        <div class="card-4grid" id="homeDealsGrid"></div>
+        <a class="card-see-more" onclick="doSearchCat('Deals')">See all deals</a>
+      </div>
+      <!-- Sign-in card -->
+      <div class="signin-card">
+        <div class="card-ttl">Sign in for the best experience</div>
+        <button class="signin-btn" onclick="showToast('Sign in at amazon.com to access your account')">Sign in securely</button>
+        <div class="new-cust">New customer? <a onclick="showToast('Create account at amazon.com/register')">Start here.</a></div>
+        <div style="margin-top:8px">
+          <div class="card-ttl" style="font-size:14px;margin-bottom:10px">Popular in Books</div>
+          <div class="card-4grid" id="homeBooksGrid"></div>
+        </div>
+        <a class="card-see-more" onclick="doSearchCat('Books')">See more</a>
+      </div>
+    </div>
+
+    <!-- DEALS OF THE DAY -->
+    <div class="section">
+      <div class="deals-head">
+        <div class="sec-title">Deals of the Day</div>
+        <div class="countdown">
+          <span>Ends in</span>
+          <span class="ctime" id="cdH">08</span><span style="font-weight:700;color:#565959">:</span>
+          <span class="ctime" id="cdM">42</span><span style="font-weight:700;color:#565959">:</span>
+          <span class="ctime" id="cdS">17</span>
+        </div>
+        <a class="sec-see-all" onclick="doSearchCat('Deals')">See all deals</a>
+      </div>
+      <div class="pgrid" id="dealsGrid"></div>
+    </div>
+
+    <!-- TRENDING NOW -->
+    <div class="section">
+      <div class="sec-head">
+        <div class="sec-title">Trending now</div>
+        <a class="sec-see-all" onclick="doSearchCat('Trending')">See more</a>
+      </div>
+      <div class="pgrid" id="trendGrid"></div>
+    </div>
+
+    <!-- BANNER -->
+    <div style="background:#232F3E;border-radius:8px;padding:14px 20px;text-align:center;color:#fff;margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap">
+      <span style="font-size:14px">📦 <strong>FREE delivery</strong> on millions of items with Prime. <a onclick="showToast('Join Prime at amazon.com/prime')" style="color:#00D4FF;cursor:pointer;text-decoration:underline">Join Prime</a></span>
+    </div>
+
+    <!-- HOME & KITCHEN -->
+    <div class="section">
+      <div class="sec-head">
+        <div class="sec-title">Shop Home & Kitchen</div>
+        <a class="sec-see-all" onclick="doSearchCat('Home')">See more</a>
+      </div>
+      <div class="pgrid" id="homeKitchenGrid"></div>
+    </div>
+
+    <!-- SHOP BY DEPARTMENT -->
+    <div class="section">
+      <div class="sec-head"><div class="sec-title">Shop by Department</div></div>
+      <div class="dept-grid">
+        <div class="dept-card" onclick="doSearchCat('Electronics')"><span class="dept-icon">💻</span><div class="dept-name">Electronics</div></div>
+        <div class="dept-card" onclick="doSearchCat('Clothing')"><span class="dept-icon">👗</span><div class="dept-name">Clothing</div></div>
+        <div class="dept-card" onclick="doSearchCat('Books')"><span class="dept-icon">📚</span><div class="dept-name">Books</div></div>
+        <div class="dept-card" onclick="doSearchCat('Home')"><span class="dept-icon">🏠</span><div class="dept-name">Home & Kitchen</div></div>
+        <div class="dept-card" onclick="doSearchCat('Sports')"><span class="dept-icon">⚽</span><div class="dept-name">Sports</div></div>
+        <div class="dept-card" onclick="doSearchCat('Toys')"><span class="dept-icon">🎮</span><div class="dept-name">Toys & Games</div></div>
+        <div class="dept-card" onclick="doSearchCat('Beauty')"><span class="dept-icon">💄</span><div class="dept-name">Beauty</div></div>
+        <div class="dept-card" onclick="doSearchCat('Grocery')"><span class="dept-icon">🛒</span><div class="dept-name">Grocery</div></div>
+        <div class="dept-card" onclick="doSearchCat('Automotive')"><span class="dept-icon">🚗</span><div class="dept-name">Automotive</div></div>
+        <div class="dept-card" onclick="doSearchCat('Tools')"><span class="dept-icon">🔧</span><div class="dept-name">Tools</div></div>
+        <div class="dept-card" onclick="doSearchCat('Health')"><span class="dept-icon">💊</span><div class="dept-name">Health</div></div>
+        <div class="dept-card" onclick="doSearchCat('Pet Supplies')"><span class="dept-icon">🐾</span><div class="dept-name">Pet Supplies</div></div>
+        <div class="dept-card" onclick="doSearchCat('Baby')"><span class="dept-icon">👶</span><div class="dept-name">Baby</div></div>
+        <div class="dept-card" onclick="doSearchCat('Video Games')"><span class="dept-icon">🕹️</span><div class="dept-name">Video Games</div></div>
+        <div class="dept-card" onclick="doSearchCat('Movies')"><span class="dept-icon">🎬</span><div class="dept-name">Movies & TV</div></div>
+        <div class="dept-card" onclick="doSearchCat('Music')"><span class="dept-icon">🎵</span><div class="dept-name">Music</div></div>
+        <div class="dept-card" onclick="doSearchCat('Office')"><span class="dept-icon">📎</span><div class="dept-name">Office</div></div>
+        <div class="dept-card" onclick="doSearchCat('Jewelry')"><span class="dept-icon">💍</span><div class="dept-name">Jewelry</div></div>
+      </div>
+    </div>
+
+    <!-- BEST SELLERS -->
+    <div class="section">
+      <div class="sec-head">
+        <div class="sec-title">Best Sellers in Electronics</div>
+        <a class="sec-see-all" onclick="doSearchCat('Electronics Best Sellers')">See more</a>
+      </div>
+      <div class="pgrid" id="bsGrid"></div>
+    </div>
+
+    <!-- DISCLOSURE -->
+    <div class="section" id="disclosure" style="font-size:13px;color:#565959;line-height:1.7">
+      <div style="font-size:17px;font-weight:700;margin-bottom:8px;color:#0F1111">Affiliate Disclosure</div>
+      <p>This site is a participant in the Amazon Services LLC Associates Program. As an Amazon Associate we earn from qualifying purchases. Product data and images displayed here reference real Amazon products. Clicking "Buy on Amazon" takes you to Amazon.com where you can complete your purchase securely.</p>
+    </div>
+  </div>
+</div>
+
+<!-- SEARCH RESULTS PAGE -->
+<div id="search-page">
+  <div class="search-page-inner">
+    <div class="filters-col" id="filterCol">
+      <div class="filter-header">Filters</div>
+      <div class="filter-section">
+        <div class="filter-section-title">Prime</div>
+        <label class="prime-filter">
+          <input type="checkbox" id="filterPrime" onchange="applyFilters()" style="width:16px;height:16px;accent-color:#FF9900">
+          <span style="font-size:14px;display:flex;align-items:center;gap:5px"><span style="background:#00A8E0;color:#fff;font-size:9px;font-weight:800;padding:1px 5px;border-radius:2px">PRIME</span> Prime Eligible</span>
+        </label>
+      </div>
+      <div class="filter-section">
+        <div class="filter-section-title">Avg. Customer Review</div>
+        <div class="filter-stars" onclick="setMinRating(4)">
+          <div class="star-bar" style="width:72px;height:14px"><div class="star-bg" style="width:72px;height:14px"></div><div class="star-fill" style="width:57.6px"></div></div>
+          <span class="fstar-lbl">& Up</span>
+        </div>
+        <div class="filter-stars" onclick="setMinRating(3)">
+          <div class="star-bar" style="width:72px;height:14px"><div class="star-bg" style="width:72px;height:14px"></div><div class="star-fill" style="width:43.2px"></div></div>
+          <span class="fstar-lbl">& Up</span>
+        </div>
+      </div>
+      <div class="filter-section">
+        <div class="filter-section-title">Price</div>
+        <label class="filter-option"><input type="checkbox" id="filterUnder25" onchange="applyFilters()">Under $25</label>
+        <label class="filter-option"><input type="checkbox" id="filter25to50" onchange="applyFilters()">$25 to $50</label>
+        <label class="filter-option"><input type="checkbox" id="filter50to100" onchange="applyFilters()">$50 to $100</label>
+        <label class="filter-option"><input type="checkbox" id="filter100to200" onchange="applyFilters()">$100 to $200</label>
+        <label class="filter-option"><input type="checkbox" id="filterOver200" onchange="applyFilters()">$200 & Above</label>
+      </div>
+      <div class="filter-section">
+        <div class="filter-section-title">New Arrivals</div>
+        <label class="filter-option"><input type="checkbox" id="filterNew" onchange="applyFilters()">New Arrivals</label>
+      </div>
+    </div>
+    <div class="results-col">
+      <div class="results-header">
+        <div class="results-count" id="resultsCount"></div>
+        <div class="sort-group">
+          <span class="sort-label">Sort by:</span>
+          <select class="sort-select" id="sortSelect" onchange="sortResults()">
+            <option value="relevance">Featured</option>
+            <option value="price_asc">Price: Low to High</option>
+            <option value="price_desc">Price: High to Low</option>
+            <option value="rating">Avg. Customer Review</option>
+            <option value="newest">Newest Arrivals</option>
+            <option value="reviews">Most Reviews</option>
+          </select>
+        </div>
+      </div>
+      <div class="sr-grid" id="resultsGrid"></div>
+      <div id="pagination" style="display:flex;align-items:center;justify-content:center;gap:4px;padding:20px 0;flex-wrap:wrap"></div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCT DETAIL PAGE -->
+<div id="product-page">
+  <div class="pd-inner">
+    <div class="pd-breadcrumb" id="pdBreadcrumb"></div>
+    <div class="pd-main-layout">
+      <!-- Thumbnail column -->
+      <div class="pd-thumbs-col" id="pdThumbsCol"></div>
+      <!-- Main image -->
+      <div class="pd-main-img-col">
+        <div class="pd-main-img-box" id="pdMainImgBox">
+          <img id="pdMainImg" src="" alt="">
+        </div>
+        <div class="pd-more-thumbs" id="pdMoreThumbs"></div>
+      </div>
+      <!-- Product info -->
+      <div class="pd-info">
+        <a class="pd-brand-link" id="pdBrandLink"></a>
+        <h1 class="pd-title-main" id="pdTitleMain"></h1>
+        <div class="pd-stars-row">
+          <div class="amz-stars pd-stars-big">
+            <div class="star-bar"><div class="star-bg"></div><div class="star-fill" id="pdStarFill"></div></div>
+          </div>
+          <span class="pd-rating-num" id="pdRatingNum"></span>
+          <span class="pd-rv-count" id="pdRvCount" onclick="document.getElementById('pdReviewsSection').scrollIntoView({behavior:'smooth'})"></span>
+        </div>
+        <hr class="pd-divider">
+        <div class="pd-price-section">
+          <div class="pd-price-label">Price: <span style="color:#CC0C39;font-size:12px;font-weight:700" id="pdSaveLabel"></span></div>
+          <div class="pd-price-main">
+            <span class="pd-price-symbol">$</span>
+            <span class="pd-price-integer" id="pdPriceInt"></span>
+            <div class="pd-price-decimal">
+              <span class="pd-price-frac" id="pdPriceFrac"></span>
+            </div>
+          </div>
+          <div class="pd-list-row" id="pdListRow"></div>
+          <div class="pd-save-row" id="pdSaveRow"></div>
+        </div>
+        <div class="pd-prime-section" id="pdPrimeSection" style="display:none">
+          <span class="pd-prime-logo-big">prime</span>
+          <span>Get it <span class="pd-prime-free" id="pdFreeDate"></span>. Order within <span style="color:#CC0C39;font-weight:700" id="pdOrderBy"></span></span>
+        </div>
+        <hr class="pd-divider">
+        <div class="pd-about-box">
+          <div class="pd-about-title">About this item</div>
+          <ul class="pd-bullets" id="pdBulletsList"></ul>
+        </div>
+        <div id="pdSpecsInline"></div>
+      </div>
+      <!-- Buy box -->
+      <div class="pd-buy-box">
+        <div class="pd-buy-price" id="pdBuyBoxPrice"></div>
+        <div class="pd-buy-prime" id="pdBuyBoxPrime" style="display:none">
+          <span class="prime-logo2">prime</span>
+          <span style="color:#007185;font-size:13px">FREE delivery <strong id="pdBBDate"></strong></span>
+        </div>
+        <div class="pd-in-stock" id="pdStock">In Stock</div>
+        <div class="qty-row">
+          <label style="font-size:14px">Qty:</label>
+          <select id="pdQty">
+            <option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option>
+          </select>
+        </div>
+        <button class="pd-add-cart-btn" id="pdAddToCart">Add to Cart</button>
+        <a class="pd-buy-now-btn" id="pdBuyNow" href="#" target="_blank" rel="noopener sponsored nofollow">Buy Now</a>
+        <div class="pd-buy-secure">
+          <svg width="14" height="16" viewBox="0 0 14 16" fill="none"><rect x="1" y="7" width="12" height="9" rx="1.5" fill="#565959"/><path d="M4 7V5a3 3 0 0 1 6 0v2" stroke="#565959" stroke-width="1.5"/></svg>
+          Secure transaction
+        </div>
+        <hr class="pd-divider2">
+        <div class="pd-ships-from">Ships from <span>Amazon</span></div>
+        <div class="pd-sold-by">Sold by <span id="pdSoldBy">Amazon.com</span></div>
+        <div class="pd-other-sellers" id="pdOtherSellers"></div>
+      </div>
+    </div>
+    <!-- Specs -->
+    <div class="specs-section" id="pdSpecsSection" style="display:none">
+      <div class="specs-title">Technical Specifications</div>
+      <table class="specs-table" id="pdSpecsTable"></table>
+    </div>
+    <!-- Reviews -->
+    <div class="reviews-section" id="pdReviewsSection">
+      <div class="rv-title">Customer reviews</div>
+      <div class="rv-overview">
+        <div class="rv-big-number">
+          <div class="rv-big-score" id="rvScore"></div>
+          <div class="rv-big-stars" id="rvStars"></div>
+          <div class="rv-big-label">out of 5</div>
+        </div>
+        <div class="rv-bars" id="rvBars"></div>
+      </div>
+      <div class="rv-list" id="rvList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="ft-back-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">Back to top</div>
+<footer>
+  <div class="ft-main">
+    <div class="ft-col">
+      <div class="ft-col-title">Get to Know Us</div>
+      <a class="ft-link">Careers</a><a class="ft-link">Blog</a><a class="ft-link">About Amazon</a>
+      <a class="ft-link">Investor Relations</a><a class="ft-link">Amazon Devices</a><a class="ft-link">Amazon Science</a>
+    </div>
+    <div class="ft-col">
+      <div class="ft-col-title">Make Money with Us</div>
+      <a class="ft-link">Sell products on Amazon</a><a class="ft-link">Sell on Amazon Business</a>
+      <a class="ft-link">Sell apps on Amazon</a><a class="ft-link">Become an Affiliate</a>
+      <a class="ft-link">Advertise Your Products</a><a class="ft-link">Self-Publish with Us</a>
+    </div>
+    <div class="ft-col">
+      <div class="ft-col-title">Amazon Payment Products</div>
+      <a class="ft-link">Amazon Business Card</a><a class="ft-link">Shop with Points</a>
+      <a class="ft-link">Reload Your Balance</a><a class="ft-link">Amazon Currency Converter</a>
+    </div>
+    <div class="ft-col">
+      <div class="ft-col-title">Let Us Help You</div>
+      <a class="ft-link">Amazon and COVID-19</a><a class="ft-link">Your Account</a>
+      <a class="ft-link">Your Orders</a><a class="ft-link">Shipping Rates & Policies</a>
+      <a class="ft-link">Amazon Prime</a><a class="ft-link">Returns & Replacements</a>
+      <a class="ft-link">Manage Your Content and Devices</a><a class="ft-link">Help</a>
+    </div>
+  </div>
+  <div class="ft-bottom">
+    <div class="ft-logo-row">
+      <span class="ft-logo-text" onclick="goHome()">amazon<span>.com</span></span>
+    </div>
+    <div class="ft-links-row">
+      <a>Conditions of Use</a><a>Privacy Notice</a><a>Consumer Health Data Privacy Disclosure</a>
+      <a>Your Ads Privacy Choices</a>
+    </div>
+    <div class="ft-copy">© 1996-2025, Amazon.com, Inc. or its affiliates. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+// ════════════════════════════════════════════════════
+//  REPLACE WITH YOUR AMAZON ASSOCIATES TAG
+// ════════════════════════════════════════════════════
+const TAG = 'YOUR_TAG-20';
+
+// Amazon image CDN helper
+const aImg = (asin, n='01', size=400) =>
+  `https://m.media-amazon.com/images/P/${asin}.${n}._SL${size}_.jpg`;
+
+// Multiple images for a product (01-06 typical)
+const allImgs = (asin, count=6) =>
+  Array.from({length:count}, (_,i) => aImg(asin, String(i+1).padStart(2,'0'), 500));
+
+const amzUrl = (asin) =>
+  `https://www.amazon.com/dp/${asin}?tag=${TAG}&linkCode=as2&camp=1789&creative=9325`;
+
+function delivDate(daysOut=2) {
+  const d = new Date(); d.setDate(d.getDate()+daysOut);
+  return d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
+}
+function orderByTime() {
+  const h = new Date().getHours(), m = new Date().getMinutes();
+  const left = (23-h)*60+(60-m);
+  return `${Math.floor(left/60)}h ${left%60}m`;
+}
+
+// ═══════════════════════════════════════════════════
+//  COMPLETE PRODUCT DATABASE — REAL ASINs + IMAGES
+// ═══════════════════════════════════════════════════
+const PRODUCTS = [
+// ── ELECTRONICS ──────────────────────────────────────────────
+{id:1,asin:'B0BDHWDR12',
+ title:'Apple AirPods Pro (2nd Generation) Wireless Ear Buds, USB-C Charging Case With MagSafe, Up to 2X More Active Noise Cancelling Bluetooth Headphones, Transparency Mode, Adaptive Audio, Personalized Spatial Audio',
+ brand:'Apple',price:189.99,orig:249.99,rating:4.7,rev:89423,
+ cat:'Electronics',tags:['Electronics','Headphones','Apple','AirPods','Wireless','Noise Cancelling'],
+ prime:true,badge:'Deal',sponsored:false,
+ imgs:[aImg('B0BDHWDR12','01',500),aImg('B0BDHWDR12','02',500),aImg('B0BDHWDR12','03',500),aImg('B0BDHWDR12','04',500),aImg('B0BDHWDR12','05',500),aImg('B0BDHWDR12','06',500)],
+ bullets:['RICHER AUDIO EXPERIENCE – Personalized Spatial Audio with dynamic head tracking places sound all around you; Adaptive Audio seamlessly blends Active Noise Cancellation and Transparency mode for the best listening experience in any environment','NEXT-LEVEL ACTIVE NOISE CANCELLATION – Up to 2x more Active Noise Cancellation than AirPods Pro (1st generation) for immersive sound in noisy environments','CUSTOMIZABLE FIT – Comes with XS, S, M, L ear tips to find the best fit; Touch control lets you swipe to adjust volume, press to play, skip, answer/end calls','ALL-DAY BATTERY – Up to 6 hours of listening time (30 hours total with case); 1 hour of listening time from just 5 minutes in case; MagSafe Charging Case supports charging via Lightning connector, MagSafe, Qi, or Apple Watch charger','APPLE H2 CHIP – Cutting-edge hardware and software work together for breakthrough sound quality and remarkably low distortion for cleaner, more natural sound at every decibel level'],
+ desc:'AirPods Pro feature the breakthrough Apple H2 chip to create a magical audio experience. Up to 2x more Active Noise Cancellation. Adaptive Transparency lets outside sound in while reducing loud background noise like planes and construction.',
+ specs:[['Brand','Apple'],['Model Name','AirPods Pro (2nd Gen)'],['Color','White'],['Connectivity','Bluetooth 5.3'],['Battery Life','6 Hours Listening'],['Compatible Devices','iPhone, iPad, Mac, Apple Watch'],['Charging','USB-C, MagSafe, Qi'],['Water Resistance','IPX4'],['Weight','5.3g per earbud']],
+ reviews:[{name:'Sarah M.',avatar:'S',rating:5,title:'Best earbuds I\'ve ever owned',date:'January 15, 2025',verified:true,text:'I\'ve tried many earbuds over the years but AirPods Pro 2nd gen are hands down the best. The ANC is incredible — I use them on my commute and I can barely hear the subway. The fit is comfortable for hours. The case is compact and charges wirelessly. Worth every penny.',helpful:847},
+          {name:'TechReviewer99',avatar:'T',rating:4,title:'Excellent, with one minor complaint',date:'December 3, 2024',verified:true,text:'Sound quality is amazing and the noise cancellation is top-tier. My only complaint is that the case scratches easily. But for the sound quality alone, these are worth it. Battery life is great.',helpful:312},
+          {name:'Mike D.',avatar:'M',rating:5,title:'Life changing for flights',date:'November 20, 2024',verified:true,text:'Used these on a 10-hour flight. Watched movies in perfect silence. The ANC completely drowns out engine noise. Adaptive transparency is great when announcements come on. These are a game changer.',helpful:523}]
+},
+
+{id:2,asin:'B09B8V1LZ3',
+ title:'Amazon Echo Dot (5th Gen, 2022 release) | Smart speaker with Alexa | Bigger vibrant sound, helpful routines at a glance, and improved motion detection | Glacier White',
+ brand:'Amazon',price:34.99,orig:49.99,rating:4.6,rev:127843,
+ cat:'Electronics',tags:['Electronics','Smart Speaker','Alexa','Echo','Amazon','Smart Home'],
+ prime:true,badge:'-30%',
+ imgs:[aImg('B09B8V1LZ3','01',500),aImg('B09B8V1LZ3','02',500),aImg('B09B8V1LZ3','03',500),aImg('B09B8V1LZ3','04',500),aImg('B09B8V1LZ3','05',500)],
+ bullets:['OUR BEST ECHO DOT YET – Bigger, vibrant sound has more bass and crisp highs for a complete audio experience. Our most popular smart speaker.','CLOCK DISPLAY – The easy-to-read LED display shows the time, weather, song titles, and alarms. It even acts as a home for your most helpful routines.','IMPROVED MOTION DETECTION – Detect motion and create personalized routines that trigger when you enter a room or when motion hasn\'t been detected for a period of time.','HELPFUL IN THE KITCHEN – Ask Alexa to set multiple timers and alarms, search for recipes, or stream music while you cook.','SMART HOME HUB – Easily control compatible devices, or ask Alexa to show you a camera feed, with a compatible Echo Show device.'],
+ desc:'Meet Echo Dot with clock (5th Gen). An updated design with enhanced capabilities make Echo Dot with clock our most popular Echo Dot ever. Bigger, vibrant sound has more bass and crisp highs for a complete audio experience.',
+ specs:[['Brand','Amazon'],['Connectivity','Wi-Fi, Bluetooth'],['Smart Home Protocols','Zigbee, Matter, Thread'],['Color Options','Deep Sea Blue, Glacier White, Lavender Bloom'],['Dimensions','3.9" x 3.9" x 3.5"'],['Weight','10.7 oz'],['Power Input','15W']],
+ reviews:[{name:'HomeOwner123',avatar:'H',rating:5,title:'Perfect for every room',date:'February 2, 2025',verified:true,text:'I have these in every room now. The sound quality is surprisingly good for such a small device. Alexa responds quickly and accurately. Great for timers, music, smart home control, and general questions. At this price point, nothing comes close.',helpful:1203},
+          {name:'James T.',avatar:'J',rating:5,title:'Great upgrade from 3rd gen',date:'January 8, 2025',verified:true,text:'The improved audio is very noticeable. Bass is much better. The clock display is super useful. Motion detection works reliably. Amazon keeps improving these and this is the best Echo Dot yet.',helpful:456}]
+},
+
+{id:3,asin:'B09TMF6745',
+ title:'Kindle Paperwhite (16 GB) – Now with a 7" display, adjustable warm light, up to 12 weeks of battery life, and easy USB-C charging. Without Lockscreen Ads',
+ brand:'Amazon',price:139.99,orig:159.99,rating:4.7,rev:74321,
+ cat:'Electronics',tags:['Electronics','Kindle','eReader','Amazon','Books','Reading'],
+ prime:true,badge:'Best Seller',
+ imgs:[aImg('B09TMF6745','01',500),aImg('B09TMF6745','02',500),aImg('B09TMF6745','03',500),aImg('B09TMF6745','04',500),aImg('B09TMF6745','05',500)],
+ bullets:['PURPOSE-BUILT FOR READING – With a glare-free display, Kindle provides a clear reading experience in any kind of light — even bright sunlight.','ADJUSTABLE WARM LIGHT – Shift your screen\'s color temperature from white to amber for a comfortable reading experience day or night.','THINNER AND LIGHTER – Thinner and lighter than prior generations, with a flush-front design for comfortable one-hand reading.','ALL-DAY BATTERY LIFE – A single charge lasts up to 12 weeks, based on 30 minutes of reading per day with wireless off and light setting at 13.','TAKE YOUR LIBRARY ANYWHERE – Store thousands of books in your pocket. Download books over Wi-Fi, or upgrade to 3G Cellular for anywhere access.'],
+ desc:'Kindle Paperwhite – The thinnest, lightest Kindle Paperwhite yet—with a flush-front design and 300 ppi glare-free display that reads like real paper even in bright sunlight. Now with a 7-inch screen.',
+ specs:[['Display','7" glare-free, 300 ppi'],['Storage','16 GB'],['Battery Life','Up to 12 weeks'],['Waterproof','IPX8 (2m for 60 min)'],['Wi-Fi','Yes, 2.4GHz and 5GHz'],['Charging','USB-C'],['Dimensions','6.9" x 4.9" x 0.3"'],['Weight','7.2 oz']],
+ reviews:[{name:'Bookworm_Lisa',avatar:'L',rating:5,title:'The best e-reader on the market',date:'March 1, 2025',verified:true,text:'I switched from a physical Kindle to this Paperwhite and the difference is huge. The 300 ppi display looks incredible — text is razor sharp. Battery lasts forever. Waterproof is essential for me since I read in the bath. The warm light is a great addition. This is my desert island device.',helpful:2341},
+          {name:'ReadingDad',avatar:'R',rating:5,title:'Great gift — kids love it',date:'February 14, 2025',verified:true,text:'Got this for my daughter and she uses it every day. She\'s read more books in the past month than in the past year. The screen is easy on the eyes. Parental controls work well.',helpful:567}]
+},
+
+{id:4,asin:'B09XS7JWHH',
+ title:'Sony WH-1000XM5 Wireless Industry Leading Noise Canceling Headphones with Auto Noise Canceling Optimizer, Crystal Clear Hands-Free Calling, and Alexa Voice Control, Black',
+ brand:'Sony',price:278.00,orig:349.99,rating:4.6,rev:34210,
+ cat:'Electronics',tags:['Electronics','Headphones','Sony','Noise Cancelling','Wireless','Over-ear'],
+ prime:true,badge:'Deal',
+ imgs:[aImg('B09XS7JWHH','01',500),aImg('B09XS7JWHH','02',500),aImg('B09XS7JWHH','03',500),aImg('B09XS7JWHH','04',500),aImg('B09XS7JWHH','05',500),aImg('B09XS7JWHH','06',500)],
+ bullets:['INDUSTRY LEADING NOISE CANCELLATION: Two processors work together to continuously cancel noise – even more effectively than the WH1000XM4','EXCEPTIONAL SOUND QUALITY: 30mm drivers deliver wide frequency response and Full Digital Amplifier matches power to whatever you are listening to','CRYSTAL CLEAR HANDS-FREE CALLING: Four beamforming microphones and precise voice pickup eliminates background noise during calls','SPEAK-TO-CHAT TECHNOLOGY: Automatically reduces the volume when you start speaking so you can have a conversation without removing your headphones','30 HOURS BATTERY LIFE: Enjoy up to 30 hours of listening with noise canceling on. Quick Charge gives you 3 hours of listening in just 3 minutes'],
+ desc:'Industry-leading noise cancellation technology is taken to a new level with the WH-1000XM5. Two processors work with eight microphones to block out noise all day.',
+ specs:[['Brand','Sony'],['Model','WH-1000XM5'],['Frequency Response','4 Hz–40,000 Hz'],['Battery Life','30 hours (NC on)'],['Driver Diameter','30mm'],['Weight','250 g'],['Codec Support','LDAC, AAC, SBC'],['Connectivity','Bluetooth 5.2']],
+ reviews:[{name:'AudioPhile_Pro',avatar:'A',rating:5,title:'Best ANC headphones, period.',date:'February 20, 2025',verified:true,text:'I\'ve owned Bose QC35, Sony 1000XM3 and 1000XM4. The XM5 is a clear step up from everything I\'ve used. The ANC is mind-blowing — it literally feels like the world goes silent. Sound quality is audiophile-grade. Build quality feels premium.',helpful:1876},
+          {name:'BusinessTraveler',avatar:'B',rating:4,title:'Great for flights, slight fit issue',date:'January 25, 2025',verified:true,text:'These are incredible for flights. 30 hours battery means I never run out on even the longest international flights. ANC is best in class. My only issue is they\'re slightly tight for my head. But sound quality is outstanding.',helpful:743}]
+},
+
+{id:5,asin:'B08MT4PGJT',
+ title:'Amazon Fire TV Stick 4K Max streaming device, supports Wi-Fi 6, Alexa Voice Remote with TV controls, free & live TV without cable or satellite',
+ brand:'Amazon',price:34.99,orig:59.99,rating:4.4,rev:196543,
+ cat:'Electronics',tags:['Electronics','Fire TV','Streaming','Amazon','4K','Smart TV'],
+ prime:true,badge:'-42%',
+ imgs:[aImg('B08MT4PGJT','01',500),aImg('B08MT4PGJT','02',500),aImg('B08MT4PGJT','03',500),aImg('B08MT4PGJT','04',500)],
+ bullets:['OUR MOST POWERFUL 4K STREAMING STICK – Stream in 4K Ultra HD with support for Dolby Vision, HDR, HDR10+, and with immersive Dolby Atmos audio.','UPGRADED PERFORMANCE – 40% more powerful than Fire TV Stick 4K. Wi-Fi 6 support for 4K streaming even in a busy home with multiple connected devices.','ALEXA VOICE REMOTE – Use your voice to search and launch content across apps. Includes TV controls that let you turn on your TV and control volume.','WATCH FREE TV – Stream 300+ free channels, thousands of movies and TV shows from Peacock, Tubi, Pluto TV, IMDb TV, and more.','EASY SETUP – Plug into your TV\'s HDMI port and stream your favorite shows, movies, sports, and live TV from services like Netflix, Prime Video, Disney+.'],
+ desc:'Our most powerful 4K streaming stick. Watch 4K Ultra HD with support for Dolby Vision, HDR, HDR10+, and Dolby Atmos audio. Upgraded with Wi-Fi 6 support.',
+ specs:[['Resolution','4K Ultra HD'],['HDR Support','Dolby Vision, HDR10+, HLG'],['Wi-Fi','Wi-Fi 6 (802.11ax)'],['Bluetooth','5.0'],['Storage','8 GB'],['RAM','2 GB'],['Processor','1.8GHz quad-core'],['Ports','HDMI']],
+ reviews:[{name:'CordCutter2025',avatar:'C',rating:5,title:'Best value streaming device available',date:'March 5, 2025',verified:true,text:'I cut cable a year ago and this is the device I use daily. 4K picture quality is stunning. Wi-Fi 6 means zero buffering on my 4K content. Alexa voice remote is super convenient. At this price there is no better streaming stick.',helpful:3421}]
+},
+
+{id:6,asin:'B0CM5JV268',
+ title:'Apple 2023 MacBook Pro Laptop M3 chip with 11-core CPU, 14-core GPU: Built for Apple Intelligence, 14-inch Liquid Retina XDR Display, 8GB Memory, 512GB SSD Storage; Space Gray',
+ brand:'Apple',price:1399.00,orig:1599.00,rating:4.8,rev:5621,
+ cat:'Electronics',tags:['Electronics','Apple','MacBook','Laptop','Computer','M3'],
+ prime:true,
+ imgs:[aImg('B0CM5JV268','01',500),aImg('B0CM5JV268','02',500),aImg('B0CM5JV268','03',500),aImg('B0CM5JV268','04',500),aImg('B0CM5JV268','05',500)],
+ bullets:['BUILT FOR APPLE INTELLIGENCE – Apple Intelligence is the personal intelligence system that helps you write, express yourself, and get things done effortlessly.','SUPERCHARGED BY M3 – The Apple M3 chip with 11-core CPU and 14-core GPU delivers a huge leap in performance and capability for pro users.','BRILLIANT DISPLAY – The 14-inch Liquid Retina XDR display features over one billion colors and extreme dynamic range.','LONG BATTERY LIFE – Up to 22 hours of battery life for the longest-lasting MacBook Pro ever.','ADVANCED CAMERA AND AUDIO – 1080p FaceTime HD camera, three-mic array with directional beamforming, and high-fidelity six-speaker sound system.'],
+ desc:'MacBook Pro features an Apple M3 chip, now with 11-core CPU. Get exceptional performance for demanding tasks including AI workloads, video editing, and 3D graphics.',
+ specs:[['Chip','Apple M3'],['CPU','11-core'],['GPU','14-core GPU'],['RAM','8GB unified memory'],['Storage','512GB SSD'],['Display','14.2-inch Liquid Retina XDR'],['Battery','Up to 22 hours'],['Weight','3.5 pounds'],['Ports','MagSafe, 3x Thunderbolt 4, HDMI, SD card']],
+ reviews:[{name:'DevProfessional',avatar:'D',rating:5,title:'Insane performance for the price',date:'February 28, 2025',verified:true,text:'The M3 chip is a monster. I\'m compiling code that used to take 8 minutes on my old Intel Mac in under 2 minutes now. Battery lasts a full workday easily. Display is gorgeous. The fans barely spin under normal load. This is the best laptop I\'ve ever owned.',helpful:1234}]
+},
+
+{id:7,asin:'B0C4HKPXQ7',
+ title:'SAMSUNG 65-Inch Class QLED Q80C Series 4K Smart TV, Quantum HDR+, Anti-Glare with Ambient Mode, Alexa Built-In, Samsung Neo QLED 2023 QN65Q80CAFXZA',
+ brand:'Samsung',price:897.99,orig:1299.99,rating:4.5,rev:12847,
+ cat:'Electronics',tags:['Electronics','Samsung','TV','4K','QLED','Smart TV'],
+ prime:true,badge:'-31%',
+ imgs:[aImg('B0C4HKPXQ7','01',500),aImg('B0C4HKPXQ7','02',500),aImg('B0C4HKPXQ7','03',500),aImg('B0C4HKPXQ7','04',500)],
+ bullets:['QUANTUM HYPERVISION: Upscale all your content to 4K detail levels and enjoy everything in its most true-to-life form with precision detail with our powerful 4K AI Upscaling Pro with Neural Quantum Processor 4K','FULL ARRAY QUANTUM DIMMING: Watch bright highlights and deep dark details display in perfect contrast across the entire screen with Quantum HDR+','ULTRA VIEWING ANGLE: Turn any seat in the house into the best seat in the house; Now everyone can enjoy the same beautiful picture from any angle','4K VIDEO + OBJECT TRACKING SOUND+: Incredibly detailed 4K picture paired with intelligent 2.2.2 channel 60W audio system','SAMSUNG SMART TV: Stream from your favorite apps with Smart TV powered by Tizen and built-in Alexa, Google Assistant, and SmartThings integration'],
+ desc:'Samsung 65" QLED Q80C TV features Quantum Dot technology and 4K Quantum HDR for stunningly vivid color and detail. Anti-Glare display is perfect for bright rooms.',
+ specs:[['Screen Size','65 Inches'],['Display Technology','QLED 4K'],['Refresh Rate','120Hz'],['HDR','Quantum HDR+'],['Audio','60W 2.2.2 channel'],['HDMI Ports','4 (HDMI 2.1)'],['Smart Platform','Tizen OS'],['Dimensions','56.9" x 35.8" x 11.8" (with stand)']],
+ reviews:[{name:'HomeCinemaFan',avatar:'H',rating:5,title:'Stunning picture quality',date:'February 10, 2025',verified:true,text:'Upgraded from a 55" 1080p TV and the difference is night and day. The QLED panel is incredibly bright and colors are vibrant. 120Hz for gaming is smooth. The anti-glare coating actually works well in my bright living room. Very happy with this purchase.',helpful:876}]
+},
+
+{id:8,asin:'B0CHX9N594',
+ title:'Apple Watch Series 9 GPS 41mm Midnight Aluminum Case with Midnight Sport Band - S/M. Fitness Tracker, Blood Oxygen & ECG Apps, Always-On Retina Display, Carbon Neutral',
+ brand:'Apple',price:299.00,orig:399.00,rating:4.7,rev:31247,
+ cat:'Electronics',tags:['Electronics','Apple Watch','Smartwatch','Fitness','GPS','Health'],
+ prime:true,badge:'-25%',
+ imgs:[aImg('B0CHX9N594','01',500),aImg('B0CHX9N594','02',500),aImg('B0CHX9N594','03',500),aImg('B0CHX9N594','04',500),aImg('B0CHX9N594','05',500)],
+ bullets:['DOUBLE TAP GESTURE: With double tap, you can now perform the most common actions with a quick, easy gesture using just one hand','CARBON NEUTRAL: The first carbon neutral Apple products ever — Apple Watch Series 9, Apple Watch SE, and Apple Watch Ultra 2 mark a historic milestone','BRIGHTER ALWAYS-ON RETINA DISPLAY: The always-on display is up to 2000 nits bright and dims to 1 nit — with the most advanced display in a smartwatch','POWERFUL HEALTH FEATURES: Measures blood oxygen, take an ECG anytime, track sleep, detect hand washing automatically','ADVANCED FITNESS FEATURES: Get pace, power, heart rate zones, and custom workouts for all your activities — running, cycling, swimming, and more'],
+ desc:'Apple Watch Series 9 features a new double tap gesture, carbon neutral design, and brighter always-on display. Most advanced Apple Watch for fitness and health tracking.',
+ specs:[['Chip','Apple S9 SiP'],['Display','Always-On Retina LTPO OLED'],['Size','41mm'],['Case','Aluminum'],['Band','Sport Band S/M'],['Water Resistance','50 meters'],['Battery','18 hours'],['Connectivity','GPS, Bluetooth 5.3, Wi-Fi, NFC']],
+ reviews:[{name:'FitnessEnthusiast',avatar:'F',rating:5,title:'Best smartwatch for iPhone users',date:'January 30, 2025',verified:true,text:'I switched from a Garmin and I\'m not going back. The integration with iPhone is seamless. Health monitoring is comprehensive. Battery gets through a full day. The double tap feature is surprisingly useful. Sleep tracking is accurate.',helpful:1543}]
+},
+
+{id:9,asin:'B08N5NQ69J',
+ title:'Ring Video Doorbell (2nd Gen) – 1080 HD video, improved motion detection, easy installation | Amazon/Ring | Works with Alexa',
+ brand:'Ring',price:64.99,orig:99.99,rating:4.3,rev:67841,
+ cat:'Electronics',tags:['Electronics','Ring','Doorbell','Security','Smart Home','Alexa'],
+ prime:true,badge:'-35%',
+ imgs:[aImg('B08N5NQ69J','01',500),aImg('B08N5NQ69J','02',500),aImg('B08N5NQ69J','03',500),aImg('B08N5NQ69J','04',500)],
+ bullets:['EASY INSTALLATION: Set up your Ring Video Doorbell in minutes using the existing doorbell wires or the included rechargeable battery','1080HD VIDEO: See, hear, and speak to visitors in real-time from your phone, tablet, or PC with 1080 HD video and two-way talk','ADVANCED MOTION DETECTION: Ring\'s most advanced motion detection alerts you when someone approaches your door, even before they ring the bell','ALEXA ENABLED: Pair with Echo Show or Echo Dot and get real-time video so you can see, hear, and speak to people at your door without lifting a finger','WORKS WITH EXISTING DOORBELL: Simply replace your existing doorbell to get notifications, 1080 HD video, and two-way talk'],
+ desc:'Ring Video Doorbell (2nd Gen) gives you 1080HD video, improved motion detection, and easy installation — with existing doorbell wiring or rechargeable battery.',
+ specs:[['Resolution','1080p HD'],['Field of View','155° horizontal, 90° vertical'],['Night Vision','Yes'],['Motion Detection','Advanced'],['Power','Battery or hardwired'],['Storage','Cloud (Ring Protect Plan), free 30-day trial'],['Connectivity','802.11 b/g/n Wi-Fi'],['Operating Temperature','-5°F to 120°F']],
+ reviews:[{name:'HomeSecure',avatar:'H',rating:4,title:'Great doorbell, easy setup',date:'March 3, 2025',verified:true,text:'Setup was genuinely easy. The app works well. Video quality is clear even at night. Motion detection is reliable. My only wish is that the subscription wasn\'t required for video storage, but the free trial is generous.',helpful:2187}]
+},
+
+// ── BOOKS ───────────────────────────────────────────────────
+{id:10,asin:'0735211299',
+ title:'Atomic Habits: An Easy & Proven Way to Build Good Habits & Break Bad Ones',
+ brand:'James Clear',price:11.98,orig:27.00,rating:4.8,rev:287654,
+ cat:'Books',tags:['Books','Self Help','Habits','Productivity','Bestseller','Nonfiction'],
+ prime:true,badge:'Best Seller',
+ imgs:[aImg('0735211299','01',500),aImg('0735211299','02',500),aImg('0735211299','03',500)],
+ bullets:['#1 New York Times bestseller with over 15 million copies sold worldwide','Proven framework for improving every day with tiny changes that lead to remarkable results','Based on 20 years of research in biology, psychology, and neuroscience','Learn to make good habits easy and bad habits hard','Real-world examples from Olympic gold medalists, award-winning artists, and business leaders'],
+ desc:'James Clear, one of the world\'s leading experts on habit formation, reveals practical strategies that will teach you exactly how to form good habits, break bad ones, and master the tiny behaviors that lead to remarkable results. If you\'re having trouble changing your habits, the problem isn\'t you. The problem is your system.',
+ specs:[['Author','James Clear'],['Publisher','Avery'],['Publication Date','October 16, 2018'],['Language','English'],['Pages','320'],['ISBN-13','978-0735211292'],['Format','Hardcover'],['Bestseller Rank','#1 in Self-Help (Books)']],
+ reviews:[{name:'ProductivityGeek',avatar:'P',rating:5,title:'Changed my life - not an exaggeration',date:'February 25, 2025',verified:true,text:'I\'ve read dozens of self-help books and this is the only one where I actually implemented the advice. The 1% better every day concept is simple but profound. The habit stacking and environment design chapters alone are worth the price. I\'ve recommended this to everyone I know.',helpful:5678}]
+},
+
+{id:11,asin:'B0BW3Y5JV7',
+ title:'Fourth Wing: The #1 Sunday Times bestselling fantasy (The Empyrean Book 1)',
+ brand:'Rebecca Yarros',price:19.19,orig:29.99,rating:4.7,rev:89213,
+ cat:'Books',tags:['Books','Fantasy','Romance','Fiction','Bestseller','Young Adult'],
+ prime:true,
+ imgs:[aImg('B0BW3Y5JV7','01',500),aImg('B0BW3Y5JV7','02',500),aImg('B0BW3Y5JV7','03',500)],
+ bullets:['#1 New York Times and #1 Sunday Times bestseller with over 20 million copies sold','Epic adult fantasy romance set in a world of dragon riders and war college','Perfect for fans of Sarah J. Maas and Leigh Bardugo','Book 1 of 3 in The Empyrean series','Over 4 million copies sold before even entering any bestseller lists'],
+ desc:'Twenty-year-old Violet Sorrengail was supposed to enter the Scribe Quadrant, spending her life developing knowledge. Now, the commanding general—also known as her mother—has ordered Violet to join the hundreds of candidates striving to become the elite of Navarre: dragon riders.',
+ specs:[['Author','Rebecca Yarros'],['Publisher','Red Tower Books'],['Pages','528'],['Language','English'],['Series','The Empyrean, Book 1'],['Format','Hardcover'],['Genre','Fantasy Romance']],
+ reviews:[{name:'FantasyFan23',avatar:'F',rating:5,title:'Could not put it down',date:'February 14, 2025',verified:true,text:'I started this at 9pm and finished it at 4am. I genuinely could not stop reading. The world-building is incredible, the romance is slow-burn perfection, and the dragons are amazing. This book fully deserves every bit of hype it\'s received.',helpful:3421}]
+},
+
+{id:12,asin:'0670785938',
+ title:'The Body Keeps the Score: Brain, Mind, and Body in the Healing of Trauma',
+ brand:'Bessel van der Kolk M.D.',price:15.99,orig:18.00,rating:4.8,rev:167890,
+ cat:'Books',tags:['Books','Psychology','Health','Mental Health','Trauma','Nonfiction','Bestseller'],
+ prime:true,
+ imgs:[aImg('0670785938','01',500),aImg('0670785938','02',500)],
+ bullets:['New York Times bestseller for over 190 consecutive weeks — one of the bestselling books of the decade','Dr. Bessel van der Kolk\'s groundbreaking book on how trauma reshapes body and brain','Over 5 million copies sold worldwide','Essential reading for therapists, counselors, and anyone affected by trauma','Explores innovative treatments including EMDR, yoga, theater, and neurofeedback'],
+ desc:'Trauma is a fact of life. Veterans and their families deal with the painful aftermath of combat; one in five Americans has been molested; one in four grew up with alcoholics; one in three couples have engaged in physical violence.',
+ specs:[['Author','Bessel van der Kolk M.D.'],['Publisher','Penguin Books'],['Pages','464'],['Language','English'],['Format','Paperback'],['Category','Mental Health & Counseling']],
+ reviews:[{name:'TherapistPro',avatar:'T',rating:5,title:'Required reading for anyone in mental health',date:'January 15, 2025',verified:true,text:'This book revolutionized my practice. Dr. van der Kolk makes complex neuroscience accessible and practical. The case studies are compelling. Every therapist should read this. Every person who has experienced trauma should read this.',helpful:7823}]
+},
+
+// ── HOME & KITCHEN ──────────────────────────────────────────
+{id:13,asin:'B00FLYWNYQ',
+ title:'Instant Pot Duo 7-in-1 Electric Pressure Cooker, Slow Cooker, Rice Cooker, Steamer, Sauté, Yogurt Maker & Warmer, Includes App With Over 800 Recipes, Stainless Steel, 6 Quart',
+ brand:'Instant Pot',price:59.99,orig:99.99,rating:4.7,rev:194832,
+ cat:'Home & Kitchen',tags:['Home','Kitchen','Instant Pot','Pressure Cooker','Cooking','Appliance'],
+ prime:true,badge:'-40%',
+ imgs:[aImg('B00FLYWNYQ','01',500),aImg('B00FLYWNYQ','02',500),aImg('B00FLYWNYQ','03',500),aImg('B00FLYWNYQ','04',500),aImg('B00FLYWNYQ','05',500)],
+ bullets:['7-IN-1 FUNCTIONALITY: Pressure cooker, slow cooker, rice cooker, steamer, sauté, yogurt maker and warmer replaces 7 kitchen appliances','QUICK ONE-TOUCH COOKING: 13 customizable Smart Programs for ribs, soups, beans, rice, poultry, yogurt, desserts and more','COOK FAST OR SLOW: Pressure cooking reduces cooking time up to 70% compared to traditional methods; slow cook for as long as you need','CONSISTENT RESULTS: With intelligent programming and up to 15 built-in smart programs, Instant Pot delivers consistent, restaurant quality results','SAFETY FEATURES: 10+ safety features including over-heat protection and a safe-locking lid; Stainless steel inner pot is dishwasher safe'],
+ desc:'The Instant Pot Duo is the #1 selling multi-cooker. It replaces 7 kitchen appliances: pressure cooker, slow cooker, rice cooker, steamer, sauté pan, yogurt maker and food warmer.',
+ specs:[['Capacity','6 Quart'],['Wattage','1000W'],['Programs','13'],['Inner Pot','Stainless Steel, Dishwasher Safe'],['Dimensions','13.4" x 12.2" x 12.5"'],['Weight','11.8 lbs'],['Voltage','120V']],
+ reviews:[{name:'FamilyCook',avatar:'F',rating:5,title:'Best kitchen appliance I\'ve ever bought',date:'March 1, 2025',verified:true,text:'I use this every single day. Made chicken stock in 45 minutes that used to take 8 hours. Rice comes out perfect every time. The slow cooker function works great for work days. The yogurt function is incredible — homemade yogurt for a fraction of the cost. Life-changing appliance.',helpful:12543}]
+},
+
+{id:14,asin:'B07FDJMC9Q',
+ title:'Ninja AF101 Air Fryer that Crisps, Roasts, Reheats, & Dehydrates, for Quick, Easy Meals, 4 Quart Capacity, & High Gloss Finish, Black/Gray',
+ brand:'Ninja',price:79.99,orig:129.99,rating:4.7,rev:87431,
+ cat:'Home & Kitchen',tags:['Home','Kitchen','Air Fryer','Ninja','Cooking','Appliance'],
+ prime:true,badge:'-38%',
+ imgs:[aImg('B07FDJMC9Q','01',500),aImg('B07FDJMC9Q','02',500),aImg('B07FDJMC9Q','03',500),aImg('B07FDJMC9Q','04',500)],
+ bullets:['UP TO 75% LESS FAT THAN TRADITIONAL FRYING: Tested against hand-breaded, deep fried chicken','4 VERSATILE COOKING PROGRAMS: Air Fry, Roast, Reheat, and Dehydrate','WIDE TEMPERATURE RANGE: 105°F–400°F allows you to gently remove moisture from foods or quickly cook and crisp foods','NONSTICK BASKET: The basket is easy to clean and dishwasher safe','COMPACT DESIGN: The small footprint fits easily on your countertop'],
+ desc:'Air fry crispy foods your whole family will love with up to 75% less fat. Ninja\'s unique Super Hot Air system circulates hot air at high speed for perfectly crispy results.',
+ specs:[['Capacity','4 Quart'],['Wattage','1550W'],['Programs','4 cooking functions'],['Temperature Range','105-400°F'],['Dimensions','13.1" x 11.8" x 11.1"'],['Weight','6.17 lbs']],
+ reviews:[{name:'HealthyCooker',avatar:'H',rating:5,title:'Makes crispy food without the guilt',date:'February 22, 2025',verified:true,text:'French fries come out as crispy as deep fried but much healthier. Chicken wings are incredible. Frozen foods reheat perfectly — no soggy microwave results. Easy to clean. I use this almost every day.',helpful:8765}]
+},
+
+{id:15,asin:'B09PNNGRZ7',
+ title:'Dyson V15 Detect Absolute Vacuum Cleaner | Laser Detects Hidden Dust | Dyson-engineered for US Power 120V | Cordless | HEPA Filtration | Hypervelocity cleaning',
+ brand:'Dyson',price:649.99,orig:749.99,rating:4.6,rev:21034,
+ cat:'Home & Kitchen',tags:['Home','Dyson','Vacuum','Cordless','Cleaning','Appliance'],
+ prime:true,
+ imgs:[aImg('B09PNNGRZ7','01',500),aImg('B09PNNGRZ7','02',500),aImg('B09PNNGRZ7','03',500),aImg('B09PNNGRZ7','04',500),aImg('B09PNNGRZ7','05',500)],
+ bullets:['LASER DETECTS HIDDEN DUST: The green laser in the Fluffy Optic cleaner head reveals microscopic dust on hard floors that\'s invisible to the naked eye','HYPERDYMIUM MOTOR: Spins at up to 125,000rpm, generating powerful suction to deep clean carpets and hard floors','INTELLIGENT REPORTING: The in-built piezo sensor counts and measures particles, automatically optimizing suction to the task','UP TO 60 MINUTES RUNTIME: Adapt settings for the task at hand with 3 power modes for floor types and for spot cleaning','ADVANCED HEPA FILTRATION: Captures 99.97% of particles as small as 0.3 microns. Fully-sealed system keeps dust inside'],
+ desc:'The Dyson V15 Detect uses a laser to reveal hidden dust, and a piezo sensor to scientifically prove deep cleaning. Most powerful Dyson cordless vacuum.',
+ specs:[['Suction','230 AW max'],['Runtime','Up to 60 minutes'],['Motor Speed','Up to 125,000rpm'],['Filtration','HEPA, captures 99.97% of particles'],['Bin Volume','0.2 gallon'],['Weight','6.68 lbs'],['Compatibility','Works on all floor types']],
+ reviews:[{name:'CleanFreak',avatar:'C',rating:5,title:'Worth every penny',date:'January 28, 2025',verified:true,text:'I was skeptical about spending this much on a vacuum but the laser feature alone converted me. I can actually SEE the dust on my floors now. The suction power is incredible on carpet. Battery lasts my whole apartment. HEPA filter is essential for my allergies.',helpful:4321}]
+},
+
+{id:16,asin:'B09LGWJWBC',
+ title:'iRobot Roomba Combo j7+ Self-Emptying Robot Vacuum & Mop – Identifies and Avoids Obstacles Like Pet Waste & Cords, Smart Mapping, Works with Alexa',
+ brand:'iRobot',price:549.99,orig:799.99,rating:4.4,rev:12981,
+ cat:'Home & Kitchen',tags:['Home','Robot Vacuum','iRobot','Roomba','Cleaning','Smart Home'],
+ prime:true,badge:'-31%',
+ imgs:[aImg('B09LGWJWBC','01',500),aImg('B09LGWJWBC','02',500),aImg('B09LGWJWBC','03',500),aImg('B09LGWJWBC','04',500)],
+ bullets:['VACUUMS AND MOPS SIMULTANEOUSLY: The Roomba Combo j7+ robot vacuum and mop vacuums and mops simultaneously with a precision jet spray mop system','OBJECT DETECTION AND AVOIDANCE: PrecisionVision Navigation identifies and avoids objects including pet waste, socks, and cords','PERSONALIZED SMART MAPPING: Creates a map of your home for smarter, more personalized cleaning runs','SELF-EMPTYING: Automatically empties itself into an enclosed bag that holds 60 days of debris','COMPATIBLE WITH ALEXA AND GOOGLE HOME'],
+ desc:'Roomba Combo j7+ robot vacuum and mop. Vacuums and mops simultaneously with a precision jet spray mop system. Self-empties into a bag that holds 60 days of debris.',
+ specs:[['Suction Power','10x Power-Lifting Suction'],['Navigation','PrecisionVision'],['Mapping','Smart Mapping'],['Battery Life','Up to 120 minutes'],['Self-Empty Bag','Holds 60 days of debris'],['Wifi','Yes, 802.11b/g/n (2.4GHz)']],
+ reviews:[{name:'BusyParent',avatar:'B',rating:4,title:'Game changer for pet owners',date:'February 5, 2025',verified:true,text:'We have two dogs and this vacuum is incredible. It avoids the pet bowls perfectly. Empties itself so I barely have to think about it. The combination vacuum/mop means my floors are always clean. The price is high but the time saved is worth it.',helpful:2187}]
+},
+
+// ── CLOTHING ────────────────────────────────────────────────
+{id:17,asin:'B073WWBCNK',
+ title:"Levi's Men's 501 Original Fit Jeans (Also Available in Big & Tall)",
+ brand:"Levi's",price:39.99,orig:69.50,rating:4.5,rev:52431,
+ cat:'Clothing',tags:['Clothing','Jeans','Levis','Men','Fashion','Denim'],
+ prime:true,badge:'-43%',
+ imgs:[aImg('B073WWBCNK','01',500),aImg('B073WWBCNK','02',500),aImg('B073WWBCNK','03',500),aImg('B073WWBCNK','04',500)],
+ bullets:['ICONIC STRAIGHT FIT: The original jean since 1873. Sits at waist with straight leg from hip to ankle','100% COTTON: Premium denim fabric that gets better with every wash and wear','BUTTON FLY: Original button fly closure with signature two-horse leather patch','SITS AT WAIST: Higher rise for a classic, flattering look','MACHINE WASHABLE: Easy care — just toss in the washing machine'],
+ desc:"The original Levi's 501 jean — the one that started it all. Made from premium denim fabric, these classic jeans feature a straight leg from hip to ankle with a regular rise.",
+ specs:[['Fit','Regular/Straight'],['Rise','Regular'],['Leg Opening','Straight'],['Closure','Button fly'],['Material','100% Cotton'],['Care','Machine wash cold, tumble dry medium']],
+ reviews:[{name:'DenimLover',avatar:'D',rating:5,title:'The only jeans worth buying',date:'February 8, 2025',verified:true,text:"I've been wearing 501s for 20 years. They break in perfectly and get better with age. The cut is timeless. These feel premium and last for years. Worth every penny at full price, incredible deal at this discounted price.",helpful:3241}]
+},
+
+{id:18,asin:'B09LRTZPCY',
+ title:"adidas Men's Ultraboost 22 Running Shoe",
+ brand:'adidas',price:119.99,orig:180.00,rating:4.7,rev:28934,
+ cat:'Clothing',tags:['Clothing','Shoes','Adidas','Running','Sneakers','Sports'],
+ prime:true,badge:'-33%',
+ imgs:[aImg('B09LRTZPCY','01',500),aImg('B09LRTZPCY','02',500),aImg('B09LRTZPCY','03',500),aImg('B09LRTZPCY','04',500)],
+ bullets:['RESPONSIVE CUSHIONING: BOOST midsole technology provides incredible energy return with every stride','PRIMEKNIT+ UPPER: Conforms perfectly to the shape of your foot for a sock-like fit','CONTINENTAL RUBBER OUTSOLE: Legendary rubber compound provides superior traction in wet and dry conditions','LINEAR ENERGY PUSH: Engineered to enhance your stride for greater propulsion','LONG DISTANCE COMFORT: These running shoes are built for high mileage and all-day comfort'],
+ desc:'Experience incredible energy return with every stride in the adidas Ultraboost 22. BOOST midsole technology absorbs and releases energy for a propulsive ride.',
+ specs:[['Type','Running Shoe'],['Upper','Primeknit+'],['Midsole','BOOST'],['Outsole','Continental Rubber'],['Drop','10mm'],['Best For','Road running']],
+ reviews:[{name:'MarathonRunner',avatar:'M',rating:5,title:'Best running shoes I\'ve owned',date:'March 2, 2025',verified:true,text:'I\'ve run in Nikes, Brooks, and New Balance. The Ultraboost is in a different league. The energy return from BOOST is noticeably springier. Very comfortable for long runs. My feet feel great after 20+ miles.',helpful:4521}]
+},
+
+// ── SPORTS ──────────────────────────────────────────────────
+{id:19,asin:'B001ARYU58',
+ title:'Bowflex SelectTech 552 Adjustable Dumbbells (Pair), 5-52.5 lbs',
+ brand:'Bowflex',price:329.00,orig:549.00,rating:4.8,rev:40213,
+ cat:'Sports',tags:['Sports','Fitness','Weights','Dumbbells','Bowflex','Home Gym'],
+ prime:true,badge:'-40%',
+ imgs:[aImg('B001ARYU58','01',500),aImg('B001ARYU58','02',500),aImg('B001ARYU58','03',500),aImg('B001ARYU58','04',500)],
+ bullets:['ADJUSTS FROM 5 TO 52.5 POUNDS: With a turn of a dial you can go from a 5-pound weight to a 52.5-pound weight in seconds','REPLACES 15 SETS OF WEIGHTS: SelectTech 552 replaces 15 sets of weights in a compact footprint — perfect for home gyms','2.5-POUND INCREMENT: Adjust in small 2.5-pound increments up to 25 pounds, then in 5-pound increments up to 52.5 pounds','INCLUDES TWO DUMBBELLS: Includes two adjustable dumbbells for balanced, coordinated training','2-YEAR WARRANTY: Bowflex backs these with a 2-year warranty'],
+ desc:'The Bowflex SelectTech 552 replaces an entire set of dumbbells. With just the turn of a dial, you can automatically change your resistance from 5 to 52.5 pounds.',
+ specs:[['Weight Range','5-52.5 lbs each'],['Number of Weight Settings','17 per dumbbell'],['Increment','2.5 lbs (up to 25), 5 lbs above'],['Dimensions','17.5" x 8" x 9"'],['Warranty','2 years'],['Sold As','Pair (2 dumbbells)']],
+ reviews:[{name:'HomeGymHero',avatar:'H',rating:5,title:'Best investment for home gym',date:'January 20, 2025',verified:true,text:'Replaced my entire dumbbell rack with these. They take up almost no space. The dial adjustment is fast and reliable. Construction feels very solid. I\'ve had mine for 3 years with zero issues. Highly recommend for anyone building a home gym.',helpful:7654}]
+},
+
+{id:20,asin:'B07JBJ7BFW',
+ title:'Hydro Flask Standard Mouth Water Bottle 21 oz - Stainless Steel Reusable Water Bottle - Wide Mouth with Leak Proof Flex Cap - Multiple Colors & Sizes - Easy to Clean - BPA-Free',
+ brand:'Hydro Flask',price:32.00,orig:44.95,rating:4.8,rev:98214,
+ cat:'Sports',tags:['Sports','Water Bottle','Hydro Flask','Outdoor','Fitness','Hydration'],
+ prime:true,badge:'-29%',
+ imgs:[aImg('B07JBJ7BFW','01',500),aImg('B07JBJ7BFW','02',500),aImg('B07JBJ7BFW','03',500),aImg('B07JBJ7BFW','04',500)],
+ bullets:['KEEPS DRINKS COLD FOR 24 HOURS AND HOT FOR 12 HOURS: TempShield double-wall vacuum insulation protects from temperature change','PREMIUM 18/8 STAINLESS STEEL: Pro-grade stainless steel resists flavor transfer and is BPA-free and phthalate-free','POWDER COAT FINISH: Durable, dishwasher-safe, and provides a non-slip grip','LEAKPROOF FLEX CAP: The Flex Cap is 100% leakproof and easy to carry — twist the lid closed for carrying, wide opening for drinking','AVAILABLE IN MULTIPLE SIZES AND COLORS: The standard mouth bottle is available in 12, 18, 21, 24, and 32 oz'],
+ desc:'Built for adventure and made for life. Hydro Flask insulated water bottles keep drinks cold for 24 hours and hot for 12 hours. Made with premium 18/8 stainless steel.',
+ specs:[['Capacity','21 oz'],['Insulation','TempShield Double-Wall'],['Cold','24 hours'],['Hot','12 hours'],['Material','18/8 Stainless Steel'],['BPA Free','Yes'],['Width','2.87 inches'],['Height','9.4 inches']],
+ reviews:[{name:'OutdoorAdventurer',avatar:'O',rating:5,title:'Worth every dollar',date:'February 17, 2025',verified:true,text:'I\'ve had cheap water bottles that barely keep anything cold for an hour. My Hydro Flask keeps water ice cold literally all day. I leave it in my car in the summer and still get cold water after 24 hours. Built to last a lifetime.',helpful:12876}]
+},
+
+// ── TOYS ────────────────────────────────────────────────────
+{id:21,asin:'B072BPNLP7',
+ title:'LEGO Technic Bugatti Chiron 42083 Race Car Building Set and Engineering Toy for Adults (3,599 Pieces)',
+ brand:'LEGO',price:195.99,orig:349.95,rating:4.9,rev:29840,
+ cat:'Toys',tags:['Toys','LEGO','Technic','Building','Adults','Cars'],
+ prime:true,badge:'-44%',
+ imgs:[aImg('B072BPNLP7','01',500),aImg('B072BPNLP7','02',500),aImg('B072BPNLP7','03',500),aImg('B072BPNLP7','04',500),aImg('B072BPNLP7','05',500)],
+ bullets:['SCALE REPLICA: This authentic recreation features a W16 engine with moving pistons, working gearbox with sequential selection, adjustable rear spoiler, and an openable rear engine cover','INCREDIBLE DETAILS: The finished model features a uniquely detailed interior with bucket seats, a steering wheel and gear stick, and a detailed Bugatti Chiron color scheme','PREMIUM BUILD EXPERIENCE: The rewarding build experience is perfect for adults and older children with a passion for engineering and design','INCLUDES A MINI BUGATTI CHIRON: A special miniature Bugatti Chiron model is included for display alongside the main build','FINISHED MODEL SIZE: Over 6 inches high, 22 inches long, and 9 inches wide (17cm x 56cm x 24cm)'],
+ desc:'Recreate the iconic Bugatti Chiron supercar in 1:8 scale. 3,599 pieces including W16 engine with moving pistons, working gearbox, and adjustable rear spoiler.',
+ specs:[['Piece Count','3,599'],['Recommended Age','16+'],['Scale','Approx. 1:8'],['Finished Size','6" H x 22" L x 9" W'],['Set Number','42083'],['Theme','Technic'],['Includes','Miniature Chiron model, driver figure']],
+ reviews:[{name:'LEGOAdult',avatar:'L',rating:5,title:'The ultimate LEGO set for car lovers',date:'January 31, 2025',verified:true,text:'Took me 3 weeks of evening sessions to build. The engineering detail is incredible — the gearbox actually shifts through gears, the pistons move, the spoiler deploys. Displayed it on my desk and everyone asks about it. The ultimate LEGO set.',helpful:6543}]
+},
+
+{id:22,asin:'B098RL6SBJ',
+ title:'Nintendo Switch – OLED Model w/ White Joy-Con',
+ brand:'Nintendo',price:299.99,orig:349.99,rating:4.8,rev:87654,
+ cat:'Toys',tags:['Toys','Video Games','Nintendo','Switch','Gaming','Console'],
+ prime:true,
+ imgs:[aImg('B098RL6SBJ','01',500),aImg('B098RL6SBJ','02',500),aImg('B098RL6SBJ','03',500),aImg('B098RL6SBJ','04',500)],
+ bullets:['VIBRANT 7-INCH OLED SCREEN: Enjoy vivid colors and crisp contrast with a 7-inch OLED screen when playing in handheld and tabletop modes','WIDE ADJUSTABLE STAND: The enhanced wide stand for tabletop mode allows for a wide range of viewing angles','64 GB INTERNAL STORAGE: Double the internal storage of the original Nintendo Switch model with 64GB of built-in storage','ENHANCED AUDIO: Improved onboard audio when using the portable gaming system in handheld and tabletop modes','COMPATIBLE WITH ALL NINTENDO SWITCH SOFTWARE: Play the full library of Nintendo Switch games in TV mode, tabletop mode, or handheld mode'],
+ desc:'Nintendo Switch OLED model with 7-inch OLED screen, 64 GB storage, and enhanced audio. Play at home or on the go.',
+ specs:[['Screen','7" OLED'],['Storage','64 GB (expandable via microSD)'],['Joy-Con','White'],['Battery','4.5 to 9 hours'],['TV Output','Up to 1080p (via dock)'],['Weight','0.93 lbs (with Joy-Con)'],['Connectivity','Wi-Fi, Bluetooth 4.1, USB-C']],
+ reviews:[{name:'GamerFamily',avatar:'G',rating:5,title:'Perfect for family gaming',date:'February 26, 2025',verified:true,text:'The OLED screen is gorgeous — colors are so vibrant compared to the original Switch. Battery life is solid. The kids love Mario Kart in handheld mode. Easy to switch between TV and handheld. Best gaming system for families.',helpful:9876}]
+},
+
+// ── BEAUTY ──────────────────────────────────────────────────
+{id:23,asin:'B07R2F7X3F',
+ title:'COSRX Advanced Snail 96 Mucin Power Essence with Snail Secretion Filtrate for Dry Skin, 3.38 fl.oz / 100ml | Korean Skin Care | Not Tested on Animals | Parabens Free | Fragrance Free',
+ brand:'COSRX',price:22.00,orig:25.00,rating:4.6,rev:89213,
+ cat:'Beauty',tags:['Beauty','Skincare','COSRX','Korean Beauty','Serum','Moisturizer'],
+ prime:true,
+ imgs:[aImg('B07R2F7X3F','01',500),aImg('B07R2F7X3F','02',500),aImg('B07R2F7X3F','03',500),aImg('B07R2F7X3F','04',500)],
+ bullets:['96% SNAIL SECRETION FILTRATE: The hero ingredient soothes, hydrates, and repairs skin — reduces the appearance of acne marks, fine lines, and damaged skin','VISIBLY IMPROVES SKIN TEXTURE: Speeds up skin\'s natural recovery cycle; boosts elasticity for firmer, more radiant looking skin','LIGHTWEIGHT WATERY TEXTURE: Absorbs quickly without greasiness for a hydrating, non-sticky feel','FRAGRANCE FREE AND PARABEN FREE: Formulated for sensitive skin without fragrance, alcohol, or parabens','CRUELTY FREE: Not tested on animals; made with naturally derived ingredients'],
+ desc:'COSRX Advanced Snail 96 Mucin Power Essence is one of the most popular K-beauty products globally. The 96% snail secretion filtrate repairs, hydrates, and soothes skin.',
+ specs:[['Key Ingredient','96% Snail Secretion Filtrate'],['Volume','100ml (3.38 fl oz)'],['Skin Type','All skin types, especially dry'],['Fragrance','Free'],['Alcohol','Free'],['Cruelty Free','Yes'],['Country of Origin','South Korea']],
+ reviews:[{name:'SkincareFanatic',avatar:'S',rating:5,title:'Holy grail skincare product',date:'March 4, 2025',verified:true,text:'I\'ve repurchased this more times than I can count. My skin texture has improved noticeably since I started using this. It absorbs quickly, doesn\'t feel sticky, and my skin looks more radiant. Great for sensitive skin. The snail mucin really does work.',helpful:14321}]
+},
+
+{id:24,asin:'B01MY2HQEP',
+ title:'CeraVe Moisturizing Cream | Body and Face Moisturizer for Dry Skin | Body Cream with Hyaluronic Acid and Ceramides | Normal to Dry | Fragrance Free | 19 oz',
+ brand:'CeraVe',price:16.97,orig:20.99,rating:4.8,rev:314210,
+ cat:'Beauty',tags:['Beauty','Skincare','CeraVe','Moisturizer','Ceramides','Fragrance Free'],
+ prime:true,badge:'Best Seller',
+ imgs:[aImg('B01MY2HQEP','01',500),aImg('B01MY2HQEP','02',500),aImg('B01MY2HQEP','03',500)],
+ bullets:['DEVELOPED WITH DERMATOLOGISTS: CeraVe Moisturizing Cream is developed with dermatologists and formulated for daily face and body use','CERAMIDES AND HYALURONIC ACID: Contains 3 essential ceramides and hyaluronic acid to help maintain the skin\'s natural barrier','24-HOUR HYDRATION: Non-greasy formula that provides all day moisturization','FRAGRANCE FREE: Free of fragrances, non-comedogenic, and non-irritating — safe for sensitive skin','ACCEPTED BY THE NATIONAL ECZEMA ASSOCIATION: Great for all skin types, including sensitive skin'],
+ desc:'CeraVe Moisturizing Cream is developed with dermatologists. Contains 3 essential ceramides and hyaluronic acid to help restore and maintain the skin\'s natural moisture barrier.',
+ specs:[['Volume','19 oz (538g)'],['Key Ingredients','Ceramides 1,3,6-II; Hyaluronic Acid; MVE Technology'],['Skin Type','Normal to Dry'],['Fragrance','Free'],['Non-Comedogenic','Yes'],['Developed With','Dermatologists'],['Accepted By','National Eczema Association']],
+ reviews:[{name:'DermPatient',avatar:'D',rating:5,title:'Dermatologist recommended for a reason',date:'February 28, 2025',verified:true,text:'My dermatologist recommended this after I had a flare-up of eczema. It genuinely works better than expensive department store creams I\'ve tried. Absorbs well, not greasy, and my skin stays hydrated all day. The ceramides make a real difference for barrier repair.',helpful:24765}]
+},
+
+// ── GROCERY ─────────────────────────────────────────────────
+{id:25,asin:'B09KVFPKN3',
+ title:"Optimum Nutrition Gold Standard 100% Whey Protein Powder, Double Rich Chocolate, 5 Pound (Packaging May Vary)",
+ brand:'Optimum Nutrition',price:54.99,orig:74.99,rating:4.8,rev:149832,
+ cat:'Grocery',tags:['Grocery','Protein','Fitness','Supplement','Chocolate','Nutrition'],
+ prime:true,badge:'-27%',
+ imgs:[aImg('B09KVFPKN3','01',500),aImg('B09KVFPKN3','02',500),aImg('B09KVFPKN3','03',500)],
+ bullets:['24G OF PROTEIN: Each serving packs 24 grams of blended protein, primarily from Whey Protein Isolate — the purest form of whey protein','5.5G BCAAS: With 5.5 grams of naturally occurring BCAAs to help repair and rebuild muscle','130 CALORIES: With 130 calories per serving and 1g of sugar, this mixes easily with water or milk','WORLD\'S BEST SELLING WHEY PROTEIN: Gold Standard 100% Whey has been the world\'s best selling whey protein for over 25 years','OVER 20 FLAVORS: With flavors ranging from Double Rich Chocolate to Cake Batter, there\'s something for every taste'],
+ desc:"Gold Standard 100% Whey is the world's #1 selling whey protein. Made with Whey Protein Isolate as the primary ingredient, it provides 24g protein and 5.5g BCAAs per serving.",
+ specs:[['Protein per Serving','24g'],['BCAAs','5.5g'],['Calories per Serving','130'],['Sugar','1g'],['Servings','Approximately 74'],['Flavor','Double Rich Chocolate'],['Primary Protein','Whey Protein Isolate (WPI)']],
+ reviews:[{name:'GymRat',avatar:'G',rating:5,title:'Best protein powder, period',date:'March 6, 2025',verified:true,text:"I've tried dozens of protein powders over 10 years of lifting. Gold Standard is always the one I come back to. Mixes perfectly with no clumps. Double Rich Chocolate tastes like a milkshake. I've seen real muscle gains with consistent use.",helpful:18234}]
+},
+
+// ── AUTOMOTIVE ──────────────────────────────────────────────
+{id:26,asin:'B07Y6GD54P',
+ title:'NOCO GENIUS5, 5A Smart Car Battery Charger, 6V and 12V Automotive Charger, Battery Maintainer, Trickle Charger, Float Charger and Desulfator for Motorcycle, ATV, Lithium and Deep Cycle Batteries',
+ brand:'NOCO',price:39.95,orig:54.95,rating:4.8,rev:38124,
+ cat:'Automotive',tags:['Automotive','Battery Charger','NOCO','Car','Maintenance','Tools'],
+ prime:true,badge:'-27%',
+ imgs:[aImg('B07Y6GD54P','01',500),aImg('B07Y6GD54P','02',500),aImg('B07Y6GD54P','03',500)],
+ bullets:['GENIUS5: More than a battery charger. A 5-amp automated battery charger, battery maintainer, trickle charger, float charger, and battery desulfator all-in-one','WORKS FOR 6-VOLT AND 12-VOLT BATTERIES: Charges lead-acid batteries including maintenance-free, flooded, gel, AGM, and enhanced flooded batteries, plus lithium batteries','ADVANCED DIAGNOSTICS: Detects battery sulfation and acid stratification and restore battery performance with repair mode','ULTRA-SAFE: Reverse polarity protection, overcharge protection, short-circuit protection, over-temperature protection — safe to connect all day, every day','INCLUDES: NOCO GENIUS5 battery charger, 12V DC car adapter, 2 O-ring terminals, 2 battery clamps'],
+ desc:'NOCO GENIUS5 is a fully automatic smart charger for 6V and 12V lead-acid and lithium batteries. Maintains, trickle charges, and desulfates batteries.',
+ specs:[['Input','100-240VAC, 50Hz-60Hz'],['Output','6V: 2.5A, 12V: 5A'],['Compatible Batteries','Lead-Acid, Lithium'],['Modes','8 charging modes'],['Weight','1.43 lbs'],['Warranty','3 years'],['Safety','Reverse polarity, short-circuit protected']],
+ reviews:[{name:'CarOwner',avatar:'C',rating:5,title:'Saved my car battery twice',date:'February 1, 2025',verified:true,text:'My car sits in the driveway for weeks during winter. This charger has maintained my battery perfectly for 2 years. The smart mode knows exactly what current to apply. User-friendly indicator lights. Worth every penny for peace of mind.',helpful:5432}]
+},
+
+// ── PET SUPPLIES ─────────────────────────────────────────────
+{id:27,asin:'B07HH1DZ2Y',
+ title:'KONG - Classic Dog Toy, Durable Natural Rubber- Fun to Chew, Chase and Fetch - Treat Dispensing - Fits Snacks, Kibble or Peanut Butter - For Large Dogs - Red',
+ brand:'KONG',price:12.99,orig:15.99,rating:4.8,rev:94213,
+ cat:'Pet Supplies',tags:['Pet','Dog','KONG','Toy','Chew','Treat Dispensing'],
+ prime:true,badge:'-19%',
+ imgs:[aImg('B07HH1DZ2Y','01',500),aImg('B07HH1DZ2Y','02',500),aImg('B07HH1DZ2Y','03',500)],
+ bullets:['IRRESISTIBLE BOUNCING ACTION: KONG Classic\'s unpredictable bounce means dogs never know which way it will go — keeping them engaged and active','TREAT DISPENSING: Stuff with kibble, treats, peanut butter, or KONG recipes for a mentally stimulating challenge','NATURAL RUBBER: Made from KONG\'s unique, ultra-durable natural red rubber formula — designed to satisfy a dog\'s natural urge to chew','DISHWASHER SAFE: Easy to clean in the dishwasher','RECOMMENDED BY VETS AND TRAINERS: Trusted by veterinarians and trainers since 1976'],
+ desc:'The KONG Classic is a treat-dispensing chew toy made from ultra-durable natural rubber. Perfect for dogs who love to chew, this toy satisfies natural instincts.',
+ specs:[['Material','Natural Rubber'],['Size','Large (for 30-65 lbs)'],['Color','Red'],['Dishwasher Safe','Yes'],['Stuffable','Yes'],['Bounce','Unpredictable'],['Recommended For','Moderate chewers']],
+ reviews:[{name:'DogMom',avatar:'D',rating:5,title:'My dog\'s absolute favorite toy',date:'March 7, 2025',verified:true,text:'I freeze peanut butter in this and my dog spends 30 minutes working it out. It keeps her busy and mentally stimulated while I work from home. The rubber is incredibly durable — she\'s had this for 2 years and it still looks new. Must-have for any dog owner.',helpful:15678}]
+},
+
+// ── VIDEO GAMES ──────────────────────────────────────────────
+{id:28,asin:'B0BVZBNFZ9',
+ title:"The Legend of Zelda: Tears of the Kingdom - Nintendo Switch (US Version)",
+ brand:'Nintendo',price:49.94,orig:69.99,rating:4.9,rev:45678,
+ cat:'Video Games',tags:['Video Games','Nintendo','Zelda','Switch','Adventure','RPG'],
+ prime:true,
+ imgs:[aImg('B0BVZBNFZ9','01',500),aImg('B0BVZBNFZ9','02',500),aImg('B0BVZBNFZ9','03',500)],
+ bullets:['AN EPIC ADVENTURE AWAITS IN THE VAST LANDS OF HYRULE: Jump into a massive open world with new abilities, new enemies, and familiar faces','NEW ABILITIES: Use Link\'s new capabilities – Ultrahand, Fuse, Ascend, and Recall – to solve puzzles and battles in creative ways','EXPLORE THE SKIES: The skies of Hyrule now await you. Soar through the air, discover islands in the clouds, and dive down into the depths of uncharted territory','CRAFT UNIQUE SOLUTIONS: Fuse weapons and objects together to craft unique solutions or create new items','GAME OF THE YEAR: Won Game of the Year at The Game Awards 2023'],
+ desc:"The sequel to Breath of the Wild. Link embarks on a journey above the vast lands of Hyrule with new abilities that allow him to create solutions to puzzles and battles. Game of the Year 2023.",
+ specs:[['Platform','Nintendo Switch'],['Developer','Nintendo'],['Genre','Action-Adventure, Open World'],['Players','1 (Single Player)'],['ESRB Rating','E10+'],['Release Date','May 12, 2023'],['Game of the Year','The Game Awards 2023']],
+ reviews:[{name:'ZeldaFan4Life',avatar:'Z',rating:5,title:'Best game I\'ve ever played',date:'February 20, 2025',verified:true,text:'I\'ve been playing Zelda since 1991. Tears of the Kingdom is the pinnacle of the series and gaming overall. The freedom is unmatched — you can solve puzzles in literally dozens of ways. Over 200 hours in and still finding new things. An absolute masterpiece.',helpful:23456}]
+},
+];
+
+// Cart state
+let cart = [];
+let currentProduct = null;
+let currentSearch = '';
+let currentSort = 'relevance';
+let filterPrimeOnly = false;
+let filterMinRating = 0;
+let filterPriceRanges = [];
+let allResults = [];
+let filteredResults = [];
+let currentPage = 1;
+const ITEMS_PER_PAGE = 16;
+
+// ═══ UTILITIES ═══
+function amzStars(rating, size=72, height=14) {
+  const pct = (rating/5*100).toFixed(1);
+  return `<div class="amz-stars"><div class="star-bar" style="width:${size}px;height:${height}px"><div class="star-bg" style="width:${size}px;height:${height}px"></div><div class="star-fill" style="width:${(rating/5*size).toFixed(1)}px"></div></div></div>`;
+}
+function priceHtml(price) {
+  if(!price && price!==0) return '<span style="font-size:14px;color:#CC0C39">Click for price</span>';
+  const [d,c] = price.toFixed(2).split('.');
+  return `<span class="price-whole"><span class="price-frac" style="vertical-align:super;font-size:13px;font-weight:700">$</span>${d}<span class="price-frac" style="vertical-align:super;font-size:13px">.${c}</span></span>`;
+}
+function delivDateStr(daysOut=2) {
+  const d = new Date(); d.setDate(d.getDate()+daysOut);
+  return d.toLocaleDateString('en-US',{weekday:'short',month:'long',day:'numeric'});
+}
+
+// ═══ PRODUCT CARD HTML ═══
+function makeCard(p, showSponsored=false) {
+  const saveAmt = p.orig ? (p.orig-p.price).toFixed(0) : 0;
+  const savePct = p.orig ? Math.round((1-p.price/p.orig)*100) : 0;
+  const [d,c] = p.price.toFixed(2).split('.');
+  return `
+  <div class="pcard" onclick="openProduct(${p.id})" role="button" tabindex="0"
+    onkeypress="if(event.key==='Enter')openProduct(${p.id})">
+    <div class="pcard-img-wrap">
+      ${p.badge?`<div class="pcard-badge-wrap"><span class="badge ${p.badge==='-'+Math.abs(savePct)+'%'||p.badge.startsWith('-')?'badge-sale':p.badge==='Best Seller'?'badge-bestseller':p.badge==='Deal'?'badge-sale':'badge-new'}">${p.badge}</span></div>`:''}
+      <img src="${p.imgs[0]}" alt="${p.title}" loading="lazy"
+        onerror="this.src='https://placehold.co/400x400/F0F2F2/888?text=No+Image'">
+    </div>
+    ${showSponsored?'<div class="badge-sponsored">Sponsored</div>':''}
+    <div class="pcard-title">${p.title}</div>
+    <div class="pcard-brand">${p.brand}</div>
+    <div style="display:flex;align-items:center;gap:6px;margin-bottom:3px">
+      ${amzStars(p.rating)}
+      <span style="font-size:12px;color:#007185">${p.rev.toLocaleString()}</span>
+    </div>
+    <div class="price-section">
+      <span class="price-whole"><span class="price-frac" style="vertical-align:super;font-size:11px;font-weight:700">$</span>${d}<span class="price-frac" style="vertical-align:super;font-size:11px">.${c}</span></span>
+      ${savePct>0?`<span class="price-savings" style="font-size:12px;margin-left:6px">(-${savePct}%)</span>`:''}
+    </div>
+    ${p.orig?`<div class="list-price-row">Was: <span>$${p.orig.toFixed(2)}</span></div>`:''}
+    ${p.prime?`<div class="prime-row"><span class="prime-logo">prime</span><span class="prime-delivery"><strong>FREE</strong> delivery <strong>${delivDateStr()}</strong></span></div>`:`<div style="font-size:12px;color:#0F1111;margin:3px 0 8px">FREE delivery available</div>`}
+    <button class="card-atc" onclick="event.stopPropagation();addToCart(${p.id})">Add to cart</button>
+  </div>`;
+}
+
+// ═══ HOME PAGE GRIDS ═══
+function initHomeGrids() {
+  const elec = PRODUCTS.filter(p=>p.cat==='Electronics').slice(0,4);
+  const elecEl = document.getElementById('homeElecGrid');
+  if(elecEl) elecEl.innerHTML = elec.map(p=>`
+    <div class="card-item" onclick="openProduct(${p.id})">
+      <div class="card-item-img"><img src="${p.imgs[0]}" alt="${p.title}" loading="lazy" onerror="this.src='https://placehold.co/200x200/F0F2F2/888?text=img'"></div>
+      <div class="card-item-lbl">${p.title.slice(0,40)}…</div>
+    </div>`).join('');
+
+  const fashion = PRODUCTS.filter(p=>p.cat==='Clothing').slice(0,4);
+  const fashEl = document.getElementById('homeFashionGrid');
+  if(fashEl) fashEl.innerHTML = fashion.map(p=>`
+    <div class="card-item" onclick="openProduct(${p.id})">
+      <div class="card-item-img"><img src="${p.imgs[0]}" alt="${p.title}" loading="lazy" onerror="this.src='https://placehold.co/200x200/F0F2F2/888?text=img'"></div>
+      <div class="card-item-lbl">${p.title.slice(0,40)}…</div>
+    </div>`).join('');
+
+  const deals = PRODUCTS.filter(p=>p.badge&&p.badge.startsWith('-')).slice(0,4);
+  const dealsEl = document.getElementById('homeDealsGrid');
+  if(dealsEl) dealsEl.innerHTML = deals.map(p=>`
+    <div class="card-item" onclick="openProduct(${p.id})">
+      <div class="card-item-img"><img src="${p.imgs[0]}" alt="${p.title}" loading="lazy" onerror="this.src='https://placehold.co/200x200/F0F2F2/888?text=img'"></div>
+      <div class="card-item-lbl">${p.title.slice(0,40)}…</div>
+    </div>`).join('');
+
+  const books = PRODUCTS.filter(p=>p.cat==='Books').slice(0,4);
+  const booksEl = document.getElementById('homeBooksGrid');
+  if(booksEl) booksEl.innerHTML = books.map(p=>`
+    <div class="card-item" onclick="openProduct(${p.id})">
+      <div class="card-item-img"><img src="${p.imgs[0]}" alt="${p.title}" loading="lazy" onerror="this.src='https://placehold.co/200x200/F0F2F2/888?text=img'"></div>
+      <div class="card-item-lbl">${p.title.slice(0,40)}…</div>
+    </div>`).join('');
+
+  // Deals of day
+  const dealProds = PRODUCTS.filter(p=>p.badge).slice(0,8);
+  const dg = document.getElementById('dealsGrid');
+  if(dg) dg.innerHTML = dealProds.map(p=>makeCard(p)).join('');
+
+  // Trending
+  const trending = [...PRODUCTS].sort(()=>Math.random()-.5).slice(0,8);
+  const tg = document.getElementById('trendGrid');
+  if(tg) tg.innerHTML = trending.map(p=>makeCard(p,true)).join('');
+
+  // Home & Kitchen
+  const hk = PRODUCTS.filter(p=>p.cat==='Home & Kitchen').slice(0,8);
+  const hkg = document.getElementById('homeKitchenGrid');
+  if(hkg) hkg.innerHTML = hk.map(p=>makeCard(p)).join('');
+
+  // Best sellers
+  const bs = [...PRODUCTS].sort((a,b)=>b.rev-a.rev).slice(0,8);
+  const bsg = document.getElementById('bsGrid');
+  if(bsg) bsg.innerHTML = bs.map(p=>makeCard(p,true)).join('');
+}
+
+// ═══ SEARCH ═══
+function doSearch() {
+  const q = document.getElementById('searchInput').value.trim();
+  const cat = document.getElementById('searchCat').value;
+  performSearch(q, cat);
+}
+function doSearchCat(cat) {
+  document.getElementById('searchInput').value = cat;
+  performSearch(cat, 'All');
+}
+function performSearch(q, cat) {
+  currentSearch = q;
+  currentPage = 1;
+  // Reset filters
+  filterPrimeOnly = false;
+  filterMinRating = 0;
+  filterPriceRanges = [];
+  document.querySelectorAll('#filterCol input[type=checkbox]').forEach(cb=>cb.checked=false);
+
+  if(!q && cat==='All') { showToast('Please enter a search term'); return; }
+
+  allResults = PRODUCTS.filter(p=>{
+    const qLower = (q||'').toLowerCase();
+    const catLower = (cat||'All').toLowerCase();
+    const matchQ = !q || p.title.toLowerCase().includes(qLower)
+      || p.brand.toLowerCase().includes(qLower)
+      || p.cat.toLowerCase().includes(qLower)
+      || (p.tags||[]).some(t=>t.toLowerCase().includes(qLower))
+      || (p.desc||'').toLowerCase().includes(qLower);
+    const matchCat = cat==='All' || p.cat.toLowerCase().includes(catLower)
+      || (p.tags||[]).some(t=>t.toLowerCase()===catLower.toLowerCase());
+    return matchQ && matchCat;
+  });
+
+  // If no results, show all
+  if(!allResults.length) allResults = PRODUCTS;
+
+  filteredResults = [...allResults];
+  sortResults();
+  showSearchPage(q || cat);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function sortResults() {
+  const sort = document.getElementById('sortSelect')?.value || 'relevance';
+  if(sort==='price_asc') filteredResults.sort((a,b)=>a.price-b.price);
+  else if(sort==='price_desc') filteredResults.sort((a,b)=>b.price-a.price);
+  else if(sort==='rating') filteredResults.sort((a,b)=>b.rating-a.rating);
+  else if(sort==='reviews') filteredResults.sort((a,b)=>b.rev-a.rev);
+  else if(sort==='newest') filteredResults.sort(()=>Math.random()-.5);
+  renderResults();
+}
+function applyFilters() {
+  filterPrimeOnly = document.getElementById('filterPrime')?.checked;
+  const filterU25 = document.getElementById('filterUnder25')?.checked;
+  const filter2550 = document.getElementById('filter25to50')?.checked;
+  const filter50100 = document.getElementById('filter50to100')?.checked;
+  const filter100200 = document.getElementById('filter100to200')?.checked;
+  const filterO200 = document.getElementById('filterOver200')?.checked;
+  filteredResults = allResults.filter(p=>{
+    if(filterPrimeOnly && !p.prime) return false;
+    if(filterMinRating && p.rating < filterMinRating) return false;
+    const anyPrice = filterU25||filter2550||filter50100||filter100200||filterO200;
+    if(anyPrice){
+      const ok = (filterU25&&p.price<25)||(filter2550&&p.price>=25&&p.price<50)
+               ||(filter50100&&p.price>=50&&p.price<100)||(filter100200&&p.price>=100&&p.price<200)
+               ||(filterO200&&p.price>=200);
+      if(!ok) return false;
+    }
+    return true;
+  });
+  currentPage = 1;
+  renderResults();
+}
+function setMinRating(r) { filterMinRating = r; applyFilters(); }
+
+function showSearchPage(label) {
+  document.getElementById('home-page').style.display = 'none';
+  document.getElementById('search-page').style.display = 'block';
+  document.getElementById('product-page').style.display = 'none';
+  renderResults();
+}
+function renderResults() {
+  const total = filteredResults.length;
+  const start = (currentPage-1)*ITEMS_PER_PAGE;
+  const page = filteredResults.slice(start, start+ITEMS_PER_PAGE);
+  document.getElementById('resultsCount').innerHTML =
+    `1-${Math.min(start+ITEMS_PER_PAGE,total)} of <span>${total.toLocaleString()}</span> results for "<b>${currentSearch}</b>"`;
+  document.getElementById('resultsGrid').innerHTML = page.map((p,i)=>makeCard(p,i%3===0)).join('');
+  renderPagination();
+}
+function renderPagination() {
+  const total = Math.ceil(filteredResults.length/ITEMS_PER_PAGE);
+  const pg = document.getElementById('pagination');
+  if(!pg||total<=1){if(pg)pg.innerHTML='';return;}
+  let html = '';
+  // Prev
+  html += `<button onclick="changePage(${currentPage-1})" ${currentPage===1?'disabled':''} style="padding:6px 12px;border:1px solid #DDD;border-radius:4px;background:#fff;cursor:${currentPage===1?'default':'pointer'};color:${currentPage===1?'#AAA':'#0F1111'};font-size:14px;min-width:36px">←</button>`;
+  const pages = Math.min(total, 10);
+  for(let i=1;i<=pages;i++) {
+    html += `<button onclick="changePage(${i})" style="padding:6px 12px;border:1px solid ${i===currentPage?'#F0901A':'#DDD'};border-radius:4px;background:${i===currentPage?'#FF9900':'#fff'};cursor:pointer;font-size:14px;font-weight:${i===currentPage?700:400};min-width:36px;color:${i===currentPage?'#fff':'#0F1111'}">${i}</button>`;
+  }
+  html += `<button onclick="changePage(${currentPage+1})" ${currentPage===total?'disabled':''} style="padding:6px 12px;border:1px solid #DDD;border-radius:4px;background:#fff;cursor:${currentPage===total?'default':'pointer'};color:${currentPage===total?'#AAA':'#0F1111'};font-size:14px;min-width:36px">→</button>`;
+  pg.innerHTML = html;
+}
+function changePage(p) {
+  const total = Math.ceil(filteredResults.length/ITEMS_PER_PAGE);
+  if(p<1||p>total) return;
+  currentPage = p;
+  renderResults();
+  document.getElementById('search-page').scrollIntoView({behavior:'smooth'});
+}
+
+// ═══ PRODUCT DETAIL PAGE ═══
+function openProduct(id) {
+  const p = PRODUCTS.find(x=>x.id===id);
+  if(!p) return;
+  currentProduct = p;
+  // Hide other pages
+  document.getElementById('home-page').style.display='none';
+  document.getElementById('search-page').style.display='none';
+  document.getElementById('product-page').style.display='block';
+  window.scrollTo({top:0,behavior:'smooth'});
+
+  // Breadcrumb
+  document.getElementById('pdBreadcrumb').innerHTML =
+    `<a onclick="goHome()">Amazon</a> <span>›</span>
+     <a onclick="doSearchCat('${p.cat}')">${p.cat}</a> <span>›</span>
+     <a onclick="doSearchCat('${p.brand}')">${p.brand}</a> <span>›</span>
+     <span style="color:#565959">${p.title.slice(0,60)}…</span>`;
+
+  // Thumbnails column
+  const thumbsCol = document.getElementById('pdThumbsCol');
+  thumbsCol.innerHTML = p.imgs.slice(0,7).map((src,i)=>`
+    <div class="pd-thumb ${i===0?'active':''}" onclick="switchPdImg(this,'${src}',${p.id})" data-pid="${p.id}">
+      <img src="${src}" alt="View ${i+1}" loading="lazy" onerror="this.parentElement.style.display='none'">
+    </div>`).join('');
+
+  // Main image
+  const mainImg = document.getElementById('pdMainImg');
+  mainImg.src = p.imgs[0];
+  mainImg.alt = p.title;
+  mainImg.onerror = ()=>{ mainImg.src='https://placehold.co/500x500/F0F2F2/888?text=Product+Image'; };
+
+  // More thumbs row under main image
+  document.getElementById('pdMoreThumbs').innerHTML = p.imgs.slice(0,7).map((src,i)=>`
+    <div class="pd-sm-thumb ${i===0?'active':''}" onclick="switchPdImgSm(this,'${src}')" data-pid="${p.id}">
+      <img src="${src}" alt="View ${i+1}" loading="lazy" onerror="this.parentElement.style.display='none'">
+    </div>`).join('');
+
+  // Brand link
+  document.getElementById('pdBrandLink').textContent = `Visit the ${p.brand} Store`;
+
+  // Title
+  document.getElementById('pdTitleMain').textContent = p.title;
+
+  // Stars
+  const starPct = (p.rating/5*100).toFixed(1);
+  document.getElementById('pdStarFill').style.width = `${p.rating/5*90}px`;
+
+  // Rating/reviews
+  document.getElementById('pdRatingNum').textContent = `${p.rating} out of 5 stars`;
+  document.getElementById('pdRvCount').textContent = `${p.rev.toLocaleString()} ratings`;
+
+  // Price
+  const [d,c] = p.price.toFixed(2).split('.');
+  document.getElementById('pdPriceInt').textContent = d;
+  document.getElementById('pdPriceFrac').textContent = '.' + c;
+
+  if(p.orig) {
+    const savePct = Math.round((1-p.price/p.orig)*100);
+    const saveAmt = (p.orig-p.price).toFixed(2);
+    document.getElementById('pdSaveLabel').textContent = `Save ${savePct}%`;
+    document.getElementById('pdListRow').innerHTML = `List Price: <span>$${p.orig.toFixed(2)}</span>`;
+    document.getElementById('pdSaveRow').textContent = `You Save: $${saveAmt} (${savePct}%)`;
+  } else {
+    document.getElementById('pdSaveLabel').textContent = '';
+    document.getElementById('pdListRow').textContent = '';
+    document.getElementById('pdSaveRow').textContent = '';
+  }
+
+  // Prime
+  const primeSection = document.getElementById('pdPrimeSection');
+  if(p.prime) {
+    primeSection.style.display = 'flex';
+    document.getElementById('pdFreeDate').innerHTML = `<strong>FREE</strong>`;
+    const dd = delivDateStr(2);
+    document.getElementById('pdFreeDate').innerHTML = `<strong>FREE delivery</strong> ${dd}`;
+    document.getElementById('pdOrderBy').textContent = orderByTime();
+  } else {
+    primeSection.style.display = 'none';
+  }
+
+  // Bullets
+  document.getElementById('pdBulletsList').innerHTML = (p.bullets||[]).map(b=>`<li>${b}</li>`).join('');
+
+  // Specs inline (compact)
+  document.getElementById('pdSpecsInline').innerHTML = '';
+
+  // Buy box
+  const buyPrice = document.getElementById('pdBuyBoxPrice');
+  buyPrice.innerHTML = `<span style="font-size:14px;font-weight:700">$</span>${d}<sup style="font-size:14px;font-weight:700">.${c}</sup>`;
+
+  const buyPrime = document.getElementById('pdBuyBoxPrime');
+  if(p.prime) {
+    buyPrime.style.display = 'flex';
+    document.getElementById('pdBBDate').textContent = delivDateStr(2);
+  } else {
+    buyPrime.style.display = 'none';
+  }
+
+  // Add to cart button
+  const atcBtn = document.getElementById('pdAddToCart');
+  atcBtn.onclick = ()=>addToCart(p.id);
+
+  // Buy now
+  const buyNow = document.getElementById('pdBuyNow');
+  buyNow.href = amzUrl(p.asin);
+
+  // Specs table
+  if(p.specs && p.specs.length) {
+    document.getElementById('pdSpecsSection').style.display = 'block';
+    document.getElementById('pdSpecsTable').innerHTML = p.specs.map(([k,v])=>`
+      <tr><td>${k}</td><td>${v}</td></tr>`).join('');
+  } else {
+    document.getElementById('pdSpecsSection').style.display = 'none';
+  }
+
+  // Reviews
+  const rvScore = document.getElementById('rvScore');
+  rvScore.textContent = p.rating.toFixed(1);
+  document.getElementById('rvStars').innerHTML = amzStars(p.rating, 90, 17);
+
+  // Review bars
+  const bars = [5,4,3,2,1];
+  const barsHtml = bars.map(star=>{
+    // Simulate distribution
+    const pcts = {5:67,4:20,3:7,2:3,1:3};
+    if(p.rating>4.7) {const v={5:78,4:15,3:4,2:2,1:1}; return `<div class="rv-bar-row"><span class="rv-bar-label">${star} star</span><div class="rv-bar-track"><div class="rv-bar-fill" style="width:${v[star]}%"></div></div><span class="rv-bar-pct">${v[star]}%</span></div>`;}
+    return `<div class="rv-bar-row"><span class="rv-bar-label">${star} star</span><div class="rv-bar-track"><div class="rv-bar-fill" style="width:${pcts[star]}%"></div></div><span class="rv-bar-pct">${pcts[star]}%</span></div>`;
+  }).join('');
+  document.getElementById('rvBars').innerHTML = barsHtml;
+
+  // Reviews list
+  const reviews = p.reviews || [];
+  const reviewColors = {'#007185':1,'#CC0C39':2,'#067D62':3,'#7B2D8B':4,'#FF9900':5,'#232F3E':6};
+  document.getElementById('rvList').innerHTML = reviews.map(rv=>{
+    const [rd,rc] = rv.rating.toFixed(2).split('.');
+    return `
+    <div class="rv-item">
+      <div class="rv-reviewer">
+        <div class="rv-avatar" style="background:${['#007185','#CC0C39','#067D62','#7B2D8B'][rv.name.length%4]}">${rv.avatar}</div>
+        <span class="rv-name">${rv.name}</span>
+      </div>
+      <div class="rv-stars-title">
+        ${amzStars(rv.rating, 72, 14)}
+        <span style="font-size:14px;font-weight:700;color:#0F1111">${rv.title}</span>
+      </div>
+      <div class="rv-date">Reviewed in the United States on ${rv.date}</div>
+      ${rv.verified?'<div class="rv-verified">Verified Purchase</div>':''}
+      <div class="rv-body">${rv.text}</div>
+      <div class="rv-helpful">${rv.helpful.toLocaleString()} people found this helpful
+        <button class="rv-helpful-btn">Helpful</button>
+        <button class="rv-helpful-btn">Report</button>
+      </div>
+    </div>`}).join('');
+}
+
+function switchPdImg(el, src, pid) {
+  document.querySelectorAll(`.pd-thumb[data-pid="${pid}"]`).forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll(`.pd-sm-thumb[data-pid="${pid}"]`).forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  const main = document.getElementById('pdMainImg');
+  main.style.opacity='0';main.style.transition='opacity .12s';
+  setTimeout(()=>{
+    main.src = src; main.onerror=()=>{main.src='https://placehold.co/500x500/F0F2F2/888?text=Image';};
+    main.onload=()=>{main.style.opacity='1';};
+  }, 80);
+}
+function switchPdImgSm(el, src) {
+  const pid = el.dataset.pid;
+  document.querySelectorAll(`.pd-sm-thumb[data-pid="${pid}"]`).forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll(`.pd-thumb[data-pid="${pid}"]`).forEach(t=>t.classList.remove('active'));
+  el.classList.add('active');
+  const main = document.getElementById('pdMainImg');
+  main.style.opacity='0';main.style.transition='opacity .12s';
+  setTimeout(()=>{
+    main.src = src; main.onload=()=>{main.style.opacity='1';};
+  }, 80);
+}
+
+// ═══ CART ═══
+function addToCart(id) {
+  const p = PRODUCTS.find(x=>x.id===id);
+  if(!p) return;
+  const ex = cart.find(x=>x.id===id);
+  if(ex) ex.qty++;
+  else cart.push({...p, qty:1});
+  updateCartUI();
+  showToast(`Added to Cart\n"${p.title.slice(0,50)}…"`);
+}
+function changeQty(id, d) {
+  const it = cart.find(x=>x.id===id);
+  if(!it) return;
+  it.qty += d;
+  if(it.qty<=0) cart=cart.filter(x=>x.id!==id);
+  updateCartUI();
+}
+function removeFromCart(id) { cart=cart.filter(x=>x.id!==id); updateCartUI(); }
+
+function updateCartUI() {
+  const total = cart.reduce((s,i)=>s+i.qty,0);
+  document.getElementById('cartBadge').textContent = total;
+  document.getElementById('cartItemCount').textContent = total;
+  const sum = cart.reduce((s,i)=>s+i.price*i.qty,0);
+  document.getElementById('cartTotalAmt').textContent = sum.toFixed(2);
+  const body = document.getElementById('cartBody');
+  const foot = document.getElementById('cartFoot');
+  const empty = document.getElementById('cartEmpty');
+  if(!cart.length) {
+    body.innerHTML=''; body.appendChild(empty); empty.style.display='block';
+    foot.style.display='none'; return;
+  }
+  empty.style.display='none'; foot.style.display='block';
+  document.getElementById('cartAmazonLink').href = amzUrl(cart[0].asin);
+  body.innerHTML = cart.map(item=>`
+    <div class="citem">
+      <div class="citem-img" onclick="openCart();openProduct(${item.id})">
+        <img src="${item.imgs[0]}" alt="${item.title}" loading="lazy" onerror="this.src='https://placehold.co/70x70/F0F2F2/888?text=+'">
+      </div>
+      <div class="citem-info">
+        <div class="citem-title" onclick="closeCart();openProduct(${item.id})">${item.title.slice(0,60)}${item.title.length>60?'…':''}</div>
+        <div class="citem-price">$${(item.price*item.qty).toFixed(2)}</div>
+        ${item.prime?`<div style="display:flex;align-items:center;gap:4px;margin-bottom:4px"><span class="prime-logo">prime</span></div>`:''}
+        <div class="citem-controls">
+          <button class="cqty-btn" onclick="changeQty(${item.id},-1)">−</button>
+          <span class="cqty-num">${item.qty}</span>
+          <button class="cqty-btn" onclick="changeQty(${item.id},1)">+</button>
+          <button class="cdel-btn" onclick="removeFromCart(${item.id})">Delete</button>
+        </div>
+      </div>
+    </div>`).join('');
+}
+function openCart() { document.getElementById('cart-overlay').classList.add('open'); document.getElementById('cart-drawer').classList.add('open'); }
+function closeCart() { document.getElementById('cart-overlay').classList.remove('open'); document.getElementById('cart-drawer').classList.remove('open'); }
+function proceedCheckout() {
+  if(cart.length) window.open(amzUrl(cart[0].asin),'_blank','noopener');
+}
+
+// ═══ GO HOME ═══
+function goHome() {
+  document.getElementById('home-page').style.display='block';
+  document.getElementById('search-page').style.display='none';
+  document.getElementById('product-page').style.display='none';
+  document.getElementById('searchInput').value='';
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ═══ ALL MENU ═══
+function showAllMenu() { showToast('Browse all departments in the search bar above'); }
+
+// ═══ HERO CAROUSEL ═══
+let hIdx=0, hInt;
+function heroGo(n) {
+  hIdx=n;
+  document.getElementById('heroTrack').style.transform=`translateX(-${n*100}%)`;
+  document.querySelectorAll('.hero-dot').forEach((d,i)=>d.classList.toggle('active',i===n));
+}
+function heroMove(d) { heroGo((hIdx+d+4)%4); clearInterval(hInt); hInt=setInterval(()=>heroMove(1),5500); }
+function startHero() { hInt=setInterval(()=>heroMove(1),5500); }
+
+// ═══ COUNTDOWN ═══
+function startCountdown() {
+  let h=8,m=42,s=17;
+  setInterval(()=>{
+    if(--s<0){s=59;if(--m<0){m=59;if(--h<0)h=23;}}
+    document.getElementById('cdH').textContent=String(h).padStart(2,'0');
+    document.getElementById('cdM').textContent=String(m).padStart(2,'0');
+    document.getElementById('cdS').textContent=String(s).padStart(2,'0');
+  },1000);
+}
+
+// ═══ TOAST ═══
+let toastTimer;
+function showToast(msg) {
+  const t=document.getElementById('toast');
+  t.innerHTML=msg.replace(/\n/g,'<br>');
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>t.classList.remove('show'),3000);
+}
+
+// ═══ KEYBOARD ═══
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape') closeCart();
+  if(e.key==='Enter' && document.activeElement===document.getElementById('searchInput')) doSearch();
+});
+
+// ═══ URL PARAMS ═══
+(function(){
+  const p=new URLSearchParams(window.location.search);
+  const q=p.get('q');
+  const asin=p.get('asin');
+  if(asin){
+    const prod=PRODUCTS.find(x=>x.asin===asin);
+    if(prod){setTimeout(()=>openProduct(prod.id),100);}
+  } else if(q){
+    document.getElementById('searchInput').value=q;
+    setTimeout(()=>performSearch(q,'All'),100);
+  }
+})();
+
+// ═══ INIT ═══
+document.addEventListener('DOMContentLoaded',()=>{
+  initHomeGrids();
+  startHero();
+  startCountdown();
+});
+</script>
+</body>
+</html>
+HTMLEOF
